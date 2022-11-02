@@ -9,25 +9,16 @@
  * Use this as a template to make API calls using php
  * 
  */
-function getData() {
+function getLegalEntity() {
     if (file_get_contents('php://input') != '') {
         $request = json_decode(file_get_contents('php://input'), true);
     } else {
         $request = array();
     }
 
+    $apiKey = 
     $apikey = $_ENV["CHECKOUT_APIKEY"];
-    $merchantAccount = $_ENV["MERCHANT_ACCOUNT"];
-    $url = "https://checkout-test.adyen.com/".$_ENV["API_VERSION"].""; //call endpoint here
-
-    $data = [
-        'merchantAccount' => $merchantAccount,
-        'countryCode' => 'NL',
-        'amount' => [
-            'currency' => 'EUR',
-            'value' => 1000
-        ]
-    ];
+    $url = "https://kyc-test.adyen.com/lem/v1/legalEntities"; //call endpoint here
 
     // Convert data to JSON
     $json_data = json_encode(array_merge($data, $request));

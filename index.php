@@ -8,51 +8,20 @@
     
     <script src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.12.0/adyen.js"></script>
     <script src="frontend/utils.js"></script>
-    <script src="frontend/dropin.js"></script>
+    <script src="frontend/paymentMethods.js"></script>
  </head>
  <body>
  <table id="example" class="table table-striped table-bordered" style="width:100%">
- <script>
-    $(document).ready(function () {
-    $('#example').DataTable();
-});
- </script>
+
  <?php
-    include "backend/paymentMethods.php";
-    echo paymentMethods();
+
 $csv = array();
 $file = fopen('data/settlement_detail_report_batch_41.csv', 'r');
 $iterator = 0;
 while (($result = fgetcsv($file)) !== false)
 {
-    /*
-    if($iterator <= 0)
-    {
-        echo '<tr>';
-        foreach($result as $element)
-        {
-            echo '<th>';
-            print_r($result);
-            echo '</th>';
-        }
-        echo '</tr>';
-    }
-    else
-    {
-        echo '<tr>';
-        foreach($result as $element)
-        {
-            echo '<td>';
-            print_r($result);
-            echo '</td>';
-        }
-        echo '</tr>';
-    }
-    $iterator = $iterator + 1;
-    */
     $csv[] = $result;
 }
-
 
 foreach($csv as $element)
 {
@@ -81,18 +50,6 @@ foreach($csv as $element)
 }
 
 fclose($file);
-
-
-/*
-echo '<pre>';
-print_r($csv);
-echo '</pre>';
-*/
-/*
-$myfile = fopen("webdictionary.txt", "r") or die("Unable to open file!");
-echo fread($myfile,filesize("data/settlement_detail_report_41.csv"));
-fclose($myfile);
-*/
 ?>
 </table>
  </body>

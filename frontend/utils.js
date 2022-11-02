@@ -8,3 +8,25 @@ const httpPost = (endpoint, data) =>
         },
         body: JSON.stringify(data)
     }).then(response => response.json());
+
+async function callServer(url, data) {
+
+    console.log("Request URL:"+url+" => " , data);
+    const res = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    
+    try {
+        data = await res.json();
+        console.log("Response URL:"+url+" =>" , data);
+        return data;
+    }
+    catch(err) {
+        console.log("Error: ",err);
+        return null;
+    }
+}
