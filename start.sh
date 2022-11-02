@@ -2,4 +2,10 @@ export MERCHANT_ACCOUNT="DanielSchofield_Ecomm"
 export CHECKOUT_APIKEY="AQEyhmfxJ4zNbBdEw0m/n3Q5qf3VaY9UCJ1+XWZe9W27jmlZiqvSA+fmJE7/b9BiTptKmMsQwV1bDb7kfNy1WIxIIkxgBw==-/y9Cvu4GUSdWYA+ZzsqlopCxVJXtKkOIRJ0l9KJpcsw=-L@E+6dE=<M}#>=bR"
 export CLIENT_KEY="test_33CV7JBL65C6XKFRZCHUTFMTTUYQ7FVV"
 
+export LEM_BASICAUTH_USERNAME ="";
+export LEM_BASICAUTH_PWD = "";
+
+export PLATFORM_APIKEY="";
+
+
 php -S localhost:3000

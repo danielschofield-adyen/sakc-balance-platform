@@ -18,7 +18,8 @@
 });
  </script>
  <?php
-
+    include "backend/paymentMethods.php";
+    echo paymentMethods();
 $csv = array();
 $file = fopen('data/settlement_detail_report_batch_41.csv', 'r');
 $iterator = 0;

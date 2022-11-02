@@ -1,6 +1,6 @@
 // Generic POST Helper
 const httpPost = (endpoint, data) =>
-    fetch(`/${endpoint}`, {
+    fetch(`backend/${endpoint}.php`, {
         method: 'POST',
         headers: {
             Accept: 'application/json, text/plain, */*',
