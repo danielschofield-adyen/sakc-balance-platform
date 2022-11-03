@@ -7,7 +7,7 @@
 
 /**
  * Use this as a template to make API calls using php
- * 
+ *
  */
 function getLegalEntity() {
     if (file_get_contents('php://input') != '') {
@@ -16,8 +16,9 @@ function getLegalEntity() {
         $request = array();
     }
 
-    $apiKey = 
-    $apikey = $_ENV["CHECKOUT_APIKEY"];
+    $password = $_ENV["LEM_BASICAUTH_PWD"];
+    $user=$_ENV["LEM_BASICAUTH_USERNAME"];
+    //$apikey = $_ENV["CHECKOUT_APIKEY"];
     $url = "https://kyc-test.adyen.com/lem/v1/legalEntities"; //call endpoint here
 
     // Convert data to JSON
@@ -38,14 +39,12 @@ function getLegalEntity() {
     // Set the url
     curl_setopt($curlAPICall, CURLOPT_URL, $url);
 
-    // Api key
-    curl_setopt($curlAPICall, CURLOPT_HTTPHEADER,
-        array(
-            "X-Api-Key: " . $apikey,
-            "Content-Type: application/json",
-            "Content-Length: " . strlen($json_data)
-        )
-    );
+    // basic auth
+    curl_setopt($ch, CURLOPT_HEADER, false);
+    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+    curl_setopt($ch, CURLOPT_USERPWD, $user.":".$password);
+    curl_setopt($ch, CURLOPT_HTTPHEADER,array("Content-type: application/json"));
+
 
     // Execute
     $result = curl_exec($curlAPICall);
