@@ -7,7 +7,7 @@
 
 /**
  * Use this as a template to make API calls using php
- *
+ * 
  */
 
  //Get data from frontend

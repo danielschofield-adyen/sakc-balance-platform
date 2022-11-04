@@ -2,7 +2,7 @@ async function callPaymentMethods()
 {
     const url = "backend/paymentMethods.php";
     const data = {
-        "merchantAccount":"KhushBP_Partner",
+        "merchantAccount":"DanielSchofield_Ecomm",
         "countryCode":"NL",
         "amount":
         {
@@ -10,7 +10,7 @@ async function callPaymentMethods()
             "value":1000
         }
     };
-
+    
     let response = await callServer(url, data);
 
     //do logic with response
