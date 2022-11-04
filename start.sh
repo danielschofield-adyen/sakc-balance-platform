@@ -5,6 +5,8 @@ export CLIENT_KEY="test_33CV7JBL65C6XKFRZCHUTFMTTUYQ7FVV"
 export LEM_BASICAUTH_USERNAME="ws_955353@Scope.BalancePlatform_TestBalancePlatformAfP"
 export LEM_BASICAUTH_PWD="A&Y7I&~v;B,t3>f[4<?E}#haN"
 
+export API_VERSION="v69"
+
 export PLATFORM_APIKEY="AQE/hmfxJ4PIbRFAw0m/n3Q5qf3VfI5eGbFLVGRYxX2bkmdfmMhkHednNhRuA+D5zZVRQPJFlgIz2tEGaOpvagZQEMFdWw2+5HzctViMSCJMYAc=-6M/ZliVkHI72FrrAsY6KBLHX3uHPXdqyk6niLe0MEvE=-HhAMk7W$L3FA~=#^"
 
 php -S localhost:3000

@@ -2,6 +2,7 @@ async function callPaymentMethods()
 {
     const url = "backend/paymentMethods.php";
     const data = {
+        
         "merchantAccount":"DanielSchofield_Ecomm",
         "countryCode":"NL",
         "amount":
