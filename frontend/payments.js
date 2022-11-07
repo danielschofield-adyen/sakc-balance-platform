@@ -49,6 +49,11 @@ async function callPayments(state)
         "origin": "http://localhost:3000/apiCallExample.html",
         "returnUrl": `http://localhost:3000/backend/handleShopperRedirect?orderRef=${orderRef}`, //Required for redirect flow
         "browserInfo": state.data.browserInfo,
+        "authenticationData": { //required for native 3DS2
+            "threeDSRequestData": {
+                "nativeThreeDS": "preferred"
+            }
+         },
         // "splits":[
         //     {
         //          "amount":{

@@ -27,7 +27,8 @@ async function callDropin()
             }
         },
         onAdditionalDetails: (state) => { //Assign event handler when additional details are required
-            callServer("/api/submitAdditionalDetails", state);
+            // callServer("/api/submitAdditionalDetails", state.data);
+            CallPaymentsDetails(state.data)
         },
         onError: (state) => {
             console.log(state);
