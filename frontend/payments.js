@@ -2,7 +2,7 @@ async function callPaymentsTEST()
 {
     const url = "backend/payments.php";
     const data = {
-        "merchantAccount":"Demo_FoodPanda",
+        // "merchantAccount":"Demo_FoodPanda",
         "amount":{
             "value":amountInput.value*100,
             "currency":"USD"
@@ -37,7 +37,7 @@ async function callPayments(state)
 {
     const url = "backend/payments.php";
     const data = {
-        "merchantAccount":"Demo_FoodPanda",
+        // "merchantAccount":"Demo_FoodPanda",
         "amount":{
             "value":amountInput.value*100,
             "currency":"USD"
@@ -49,23 +49,23 @@ async function callPayments(state)
         "origin": "http://localhost:3000/apiCallExample.html",
         "returnUrl": `http://localhost:3000/backend/handleShopperRedirect?orderRef=${orderRef}`, //Required for redirect flow
         "browserInfo": state.data.browserInfo,
-        "splits":[
-            {
-                 "amount":{
-                     "value":(amountInput.value*100)*.9
-                 },
-                 "type":"BalanceAccount",
-                 "account":"BA32272223222C5GW6JQ3B882",
-                 "reference":"hjsvhdsguvygsuyv"
-              },
-              {
-                 "amount":{
-                     "value":(amountInput.value*100)*.1
-                 },
-                 "type":"Commission",
-                 "reference":"jhsdfvhjgvudgsu"
-              }
-           ]
+        // "splits":[
+        //     {
+        //          "amount":{
+        //              "value":(amountInput.value*100)*.9
+        //          },
+        //          "type":"BalanceAccount",
+        //          "account":"BA32272223222C5GW6JQ3B882",
+        //          "reference":"hjsvhdsguvygsuyv"
+        //       },
+        //       {
+        //          "amount":{
+        //              "value":(amountInput.value*100)*.1
+        //          },
+        //          "type":"Commission",
+        //          "reference":"jhsdfvhjgvudgsu"
+        //       }
+        //    ]
     };
     
     let response = await callServer(url, data);

@@ -13,6 +13,7 @@ async function callDropin()
     configuration = {
         paymentMethodsResponse: paymentMethodResponse,
         clientKey: "test_H7MSZIX745E3DAIO4AO6MKBMWEKWMR6S",  //Harded for now, tried to pull from backend and .env but not successful. Can someone do it?
+        // clientKey: "{{ env('CLIENT_KEY') }}",
         locale: "en-US",
         environment: "test",
         countryCode: "US",

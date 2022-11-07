@@ -23,7 +23,7 @@ $merchantAccount = $_ENV["MERCHANT_ACCOUNT"]; //not using this
 $url = "https://checkout-test.adyen.com/".$_ENV["API_VERSION"]."/paymentMethods";
 
 //Add any additional data not sent in the request
-$data = [];
+$data = [ "merchantAccount"=>$merchantAccount ];
 
 // Convert data to JSON
 $json_data = json_encode(array_merge($data, $request));
