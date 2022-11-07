@@ -9,5 +9,5 @@ async function CallPaymentsDetails(payload)
     let response = await callServer(url, data);
 
     //do logic with response
-    return response;
+    handleServerResponse(response);
 }
