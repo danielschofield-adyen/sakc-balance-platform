@@ -1,11 +1,11 @@
-export MERCHANT_ACCOUNT="DanielSchofield_Ecomm"
-export CHECKOUT_APIKEY="AQEyhmfxJ4zNbBdEw0m/n3Q5qf3VaY9UCJ1+XWZe9W27jmlZiqvSA+fmJE7/b9BiTptKmMsQwV1bDb7kfNy1WIxIIkxgBw==-/y9Cvu4GUSdWYA+ZzsqlopCxVJXtKkOIRJ0l9KJpcsw=-L@E+6dE=<M}#>=bR"
-export CLIENT_KEY="test_33CV7JBL65C6XKFRZCHUTFMTTUYQ7FVV"
+export MERCHANT_ACCOUNT="Demo_FoodPanda"
+export CHECKOUT_APIKEY="AQEwhmfxJ4nMbxxLw0m/n3Q5qf3Ve6pmLqxsV2pS9nmlmmdUn7Wo8dhTEDu1SHrz58KNEMFdWw2+5HzctViMSCJMYAc=-Ilxvw+bRjr6Wd8/YNlVtfJyTx4fe5WzpxuIjXqy4vHg=-;X8AZ(~fX4>qf4)z"
+export CLIENT_KEY="test_H7MSZIX745E3DAIO4AO6MKBMWEKWMR6S"
 export API_VERSION="v69"
 
-export LEM_BASICAUTH_USERNAME="ws_955353@Scope.BalancePlatform_TestBalancePlatformAfP"
-export LEM_BASICAUTH_PWD="A&Y7I&~v;B,t3>f[4<?E}#haN"
+export LEM_BASICAUTH_USERNAME="ws_481111@Scope.Company_KhushBPCompany"
+export LEM_BASICAUTH_PWD="^,4#TxpFcMcr~Px,fYkJ[.kT("
 
-export PLATFORM_APIKEY="AQE/hmfxJ4PIbRFAw0m/n3Q5qf3VfI5eGbFLVGRYxX2bkmdfmMhkHednNhRuA+D5zZVRQPJFlgIz2tEGaOpvagZQEMFdWw2+5HzctViMSCJMYAc=-6M/ZliVkHI72FrrAsY6KBLHX3uHPXdqyk6niLe0MEvE=-HhAMk7W$L3FA~=#^"
+export PLATFORM_APIKEY="AQE7hmfuXduSOksR5lq8k3A+qPaWBr9IHodoWWlXyHuurmpKisF5AstKDiJyBl4sjdmRXLQkHrIEmf0fIYcQwV1bDb7kfNy1WIxIIkxgBw==-zkCdi/44TJwghypVDswrlvQn60SRL7d/z5WoDnaQ61Q=-&H:Sh>~MSy%74\$Rj"
 
 php -S localhost:3000
