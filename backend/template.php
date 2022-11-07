@@ -19,6 +19,7 @@ if (file_get_contents('php://input') != '') {
 
 //set api key, merchant account and url
 $apikey = $_ENV["CHECKOUT_APIKEY"]; //update with platform or checkout api keys
+$merchantAccount = $_ENV["MERCHANT_ACCOUNT"]; //not using this
 $url = "https://[endpoint]"; //call endpoint here
 
 //Add any additional data not sent in the request

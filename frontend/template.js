@@ -16,4 +16,5 @@ async function doApiCall()
     let response = await callServer(url, data);
 
     //do logic with response
+    return response;
 }

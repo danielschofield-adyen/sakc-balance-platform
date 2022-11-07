@@ -2,17 +2,17 @@ async function callPaymentMethods()
 {
     const url = "backend/paymentMethods.php";
     const data = {
-
-        "merchantAccount":"KhushBP_Partner",
-        "countryCode":"NL",
+        "merchantAccount":"Demo_FoodPanda", //Harded for now, tried to pull from backend and .env but not successful. Can someone do it?
+        "countryCode":"US",
         "amount":
         {
-            "currency":"EUR",
-            "value":1000
+            "currency":"USD",
+            "value":amountInput.value*100
         }
     };
-
+    
     let response = await callServer(url, data);
 
     //do logic with response
+    return response;
 }

@@ -11,7 +11,7 @@ const httpPost = (endpoint, data) =>
 
 async function callServer(url, data) {
 
-    console.log("Request URL:"+url+" => " , data);
+    console.log("Request URL: "+url+" => " , data);
     const res = await fetch(url, {
         method: "POST",
         body: JSON.stringify(data),
@@ -22,11 +22,11 @@ async function callServer(url, data) {
     
     try {
         data = await res.json();
-        console.log("Response URL:"+url+" =>" , data);
+        console.log("Response URL: "+url+" =>" , data);
         return data;
     }
     catch(err) {
         console.log("Error: ",err);
-        return null;
+        return err;
     }
 }

@@ -1,4 +1,4 @@
-    <?php
+<?php
     /**
      * Adyen Checkout Example (https://www.adyen.com/)
      * Copyright (c) 2019 Adyen BV (https://www.adyen.com/)
@@ -27,18 +27,6 @@
     // Convert data to JSON
     $json_data = json_encode(array_merge($data, $request));
 
-    // Initiate curl
-    $curlAPICall = curl_init();
-
-    // Set to POST
-    curl_setopt($curlAPICall, CURLOPT_CUSTOMREQUEST, "POST");
-
-    // Will return the response, if false it print the response
-    curl_setopt($curlAPICall, CURLOPT_RETURNTRANSFER, true);
-
-    // Add JSON message
-    curl_setopt($curlAPICall, CURLOPT_POSTFIELDS, $json_data);
-
     // Set the url
     curl_setopt($curlAPICall, CURLOPT_URL, $url);
 
@@ -54,10 +42,6 @@
             "Content-Type: application/json",
             "Content-Length: " . strlen($json_data)
         )
-    );
-
-    // Execute
-    $result = curl_exec($curlAPICall);
 
     // Error Check
     if ($result === false){
