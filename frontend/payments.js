@@ -43,7 +43,7 @@ async function callPayments(state)
         "countryCode": "US",
         "origin": "http://localhost:3000/apiCallExample.html",
         // "returnUrl": `http://localhost:3000/backend/handleShopperRedirect?orderRef=${orderRef}`, //Required for redirect flow
-        "returnUrl": "http://localhost:3000/resultsPage.html",
+        "returnUrl": "http://localhost:3000/apiCallExample.html",
         "browserInfo": state.data.browserInfo,
         "authenticationData": { //required for native 3DS2
             "threeDSRequestData": {
