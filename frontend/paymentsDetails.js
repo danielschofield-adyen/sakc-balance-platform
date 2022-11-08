@@ -6,8 +6,5 @@ async function CallPaymentsDetails(payload)
         "paymentData": payload.paymentData,
     };
 
-    let response = await callServer(url, data);
-
-    //do logic with response
-    handleServerResponse(response);
+    handleSubmission(url, data);
 }

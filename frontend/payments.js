@@ -28,11 +28,6 @@ async function callPaymentsTEST()
 //Global order number
 const orderRef = Math.floor(Math.random() * Date.now()); //Unique ref for the transaction
 
-//Initiate a payment - When the shopper selects the pay button
-//A temporary store to keep payment data to be sent in additional payment details and redirects.
-//This is more secure than a cookie. In a real application this should be in a database.
-const paymentDataStore = {};
-
 async function callPayments(state)
 {
     const url = "backend/payments.php";
@@ -47,7 +42,8 @@ async function callPayments(state)
         "channel": "Web",
         "countryCode": "US",
         "origin": "http://localhost:3000/apiCallExample.html",
-        "returnUrl": `http://localhost:3000/backend/handleShopperRedirect?orderRef=${orderRef}`, //Required for redirect flow
+        // "returnUrl": `http://localhost:3000/backend/handleShopperRedirect?orderRef=${orderRef}`, //Required for redirect flow
+        "returnUrl": "http://localhost:3000/resultsPage.html",
         "browserInfo": state.data.browserInfo,
         "authenticationData": { //required for native 3DS2
             "threeDSRequestData": {
@@ -72,15 +68,7 @@ async function callPayments(state)
         //       }
         //    ]
     };
-    
-    let response = await callServer(url, data);
 
-    const { action } = response;
-    //If there is an action, temporarily save paymentData so you don't loose the data in the redirect/action
-    if (action) {
-      paymentDataStore[orderRef] = action.paymentData;
-    }
+    let response = await handleSubmission(url, data);
 
-    //do logic with response
-    handleServerResponse(response);
 }

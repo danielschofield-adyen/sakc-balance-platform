@@ -1,7 +1,7 @@
-async function handleSubmission(state, component, url) {
+async function handleSubmission(url, state) {
   try {
-    const res = await callServer(url, state.data);
-    handleServerResponse(res, component);
+    const res = await callServer(url, state);
+    handleServerResponse(res);
   } catch (error) {
     console.error(error);
   }
