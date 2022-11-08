@@ -1,6 +1,6 @@
 var dropin;
 
-async function callDropin()
+async function callWallet()
 {
     let paymentMethodResponse = await callPaymentMethods()
 
@@ -19,7 +19,7 @@ async function callDropin()
         countryCode: "US",
         amount: {
           currency: "USD",
-          value: totalCartCost*100,
+          value: amountInput.value*100,
         },
         onSubmit: (state) => { //Assign event handler when pay button is clicked
             if (state.isValid) {
@@ -36,4 +36,6 @@ async function callDropin()
 
     checkout = await AdyenCheckout(configuration);
     dropin = checkout.create("dropin").mount(document.getElementById("dropin-container"));
+
+
 }

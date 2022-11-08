@@ -18,22 +18,24 @@
     <script src="frontend/dropin.js"></script>
  </head>
  <body onload="handleShopperRedirect()">
-  <button style="width:300px;height:100px;font-size:32;" onclick="callPaymentMethods()">/paymentMethods</button>
-  <br>
-  <br>
-  <button style="width:300px;height:100px;font-size:32;" onclick="callPaymentsTEST()">/payments</button>
-  <br>
-  <br>
-  <button style="width:300px;height:100px;font-size:32;" onclick="callLegalEntity()">Individual Legal Entity</button>
-  <br>
-  <br>
-  <label for="amountInput">Amount:</label>
-  <input type="number" min="0" id="amountInput" name="amountInput" value="10.00" style="width: 6em">
-  <br>
-  <br>
-  <button style="width:300px;height:100px;font-size:32;" onclick="callDropin()">Drop-In</button>
-  <br>
-  <br>
-  <div id="dropin-container"></div>
+   <header class="main-header">
+      <nav class="nav main-nav">
+            <ul>
+               <li><a href="shoppingCart.html">Shopping Cart Sample</a></li>
+            </ul>
+      </nav>
+      <h1 class="main-title">API Call Example Function Page</h1>
+   </header>
+   <button style="width:300px;height:100px;font-size:32;" onclick="callPaymentMethodsTEST()">/paymentMethods</button>
+   <br>
+   <br>
+   <button style="width:300px;height:100px;font-size:32;" onclick="callPaymentsTEST()">/payments</button>
+   <br>
+   <br>
+   <button style="width:300px;height:100px;font-size:32;" onclick="callLegalEntity()">Individual Legal Entity</button>
+   <br>
+   <br>
+   <label for="amountInput">Amount:</label>
+   <input type="number" min="0" id="amountInput" name="amountInput" value="10.00" style="width: 6em">
  </body>
 </html>
