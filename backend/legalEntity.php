@@ -21,11 +21,32 @@
     $password = $_ENV["LEM_BASICAUTH_PWD"];
     $url = "https://kyc-test.adyen.com/lem/v1/legalEntities"; //call endpoint here
 
+    $dateOfBirth = date("YYYY-MM-DD", strtotime($request['date_of_birth']));
     //Add any additional data not sent in the request
-    $data = [];
+    $data = [
+          "identificationData"=>array("number"=>"113654424","type"=>"driversLicense"),
+          "phone"=> array("number"=>$request['phone_number'],"type"=>"mobile"),
+          "name"=>array("firstName"=>$request['first_name'],"lastName"=>$request['last_name']),
+          "birthData"=>array("dateOfBirth"=>$dateOfBirth),
+          "email"=>$request["email"],
+          "type"=>"individual",
+          "individual"=>array(
+            "residentialAddress"=>array(
+                "city"=>"VALID",
+                "country"=>"US",
+                "postalCode"=>"94678",
+                "stateOrProvince"=>"CA",
+                "street"=>"Brannan Street",
+                "street2"=>"274"
+            )
+          )
+    ];
 
     // Convert data to JSON
-    $json_data = json_encode(array_merge($data, $request));
+    $json_data = json_encode($request);
+
+    // Initiate curl
+    $curlAPICall = curl_init();
 
     // Set the url
     curl_setopt($curlAPICall, CURLOPT_URL, $url);
@@ -42,6 +63,10 @@
             "Content-Type: application/json",
             "Content-Length: " . strlen($json_data)
         )
+    );
+
+    // Execute
+    $result = curl_exec($curlAPICall);
 
     // Error Check
     if ($result === false){

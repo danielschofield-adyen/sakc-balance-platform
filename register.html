@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="login/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="login/css/style.css">
+
+    <!-- Javascript to handle registration -->
+    <script src="frontend/register.js"></script>
+    <script src="frontend/utils.js"></script>
+</head>
+<body>
+
+    <div class="main">
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <form method="POST" class="register-form" id="register-form" action="javascript:attemptRegistration();">
+                            <div class="form-group">
+                                <label for="first_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="first_name" id="first_name" placeholder="First Name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="last_name" id="last_name" placeholder="Last Name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="username"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="username" id="username" placeholder="Username"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="password"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="password" id="password" placeholder="Password"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone_number"><i class="zmdi zmdi-account material-icons-phone"></i></label>
+                                <input type="tel" id="phone_number" name="phone_number" pattern="^\+[1-9]{1}[0-9]{3,14}$" placeholder="Phone number">
+                            </div>
+                            <div class="form-group">
+                                <label for="date_of_bith"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="date" id="date_of_birth" name="date_of_birth" placeholder="Date of birth">
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="Register"/>
+                            </div>
+                            <div class="form-group form-button">
+                                <p id="message" hidden="true">Dummy text</p>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="login/images/food-panda-logo.png" alt="sing up image"></figure>
+                        <a href="login.html" class="signup-image-link">I am already member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="login/vendor/jquery/jquery.min.js"></script>
+    <script src="login/js/main.js"></script>
+</body>
+</html>

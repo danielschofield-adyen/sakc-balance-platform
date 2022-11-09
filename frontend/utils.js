@@ -14,19 +14,22 @@ async function callServer(url, data) {
     console.log("Request URL: "+url+" => " , data);
     const res = await fetch(url, {
         method: "POST",
-        body: JSON.stringify(data),
+        body: (JSON.stringify(data)),
         headers: {
             "Content-Type": "application/json"
         }
     })
-    
+
     try {
         data = await res.json();
         console.log("Response URL: "+url+" =>" , data);
         return data;
     }
     catch(err) {
-        console.log("Error: ",err);
-        return err;
+        if(err instanceof SyntaxError)
+            console.log("Empty or No Response from DB");
+        else        
+            console.log("Error: ",err);
+        return false;
     }
 }
