@@ -3,9 +3,9 @@ export CHECKOUT_APIKEY="AQEwhmfxJ4nMbxxLw0m/n3Q5qf3Ve6pmLqxsV2pS9nmlmmdUn7Wo8dhT
 export CLIENT_KEY="test_H7MSZIX745E3DAIO4AO6MKBMWEKWMR6S"
 export API_VERSION="v69"
 
-export LEM_BASICAUTH_USERNAME="ws_481111@Scope.Company_KhushBPCompany"
-export LEM_BASICAUTH_PWD="^,4#TxpFcMcr~Px,fYkJ[.kT("
+export LEM_BASICAUTH_USERNAME="ws_268426@Scope.Company_SAKC_FoodPanda"
+export LEM_BASICAUTH_PWD="?wB37=?gGy#?N9}Sn##Q&2V.e"
 
-export PLATFORM_APIKEY="AQE7hmfuXduSOksR5lq8k3A+qPaWBr9IHodoWWlXyHuurmpKisF5AstKDiJyBl4sjdmRXLQkHrIEmf0fIYcQwV1bDb7kfNy1WIxIIkxgBw==-zkCdi/44TJwghypVDswrlvQn60SRL7d/z5WoDnaQ61Q=-&H:Sh>~MSy%74\$Rj"
+export PLATFORM_APIKEY="AQExhmfuXduSOksR5lq8k3A+qPaWBq9IAJx1fmpZwkiqkGJKBLIjs9LDqU6nZbIgy5TrHhDBXVsNvuR83LVYjEgiTGAH-DQb+BMD7IE3lw0HB6aoKmFwLrkwNzYDEhjR5zs8ZowI=-W~fI&A^@xxe3t?2n"
 
 php -S localhost:3000
