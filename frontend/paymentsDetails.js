@@ -1,10 +1,10 @@
 async function CallPaymentsDetails(payload)
 {
     const url = "backend/paymentsDetails.php";
-    const data = { payload };
+    const data = {
+        "details": payload.details,
+        "paymentData": payload.paymentData,
+    };
 
-    let response = await callServer(url, data);
-
-    //do logic with response
-    return response;
+    handleSubmission(url, data);
 }
