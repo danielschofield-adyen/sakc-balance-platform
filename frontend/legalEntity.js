@@ -6,28 +6,26 @@ async function callLegalEntity()
     "individual": {
       "residentialAddress": {
         "city": "VALID",
-        "country": "US",
+        "country": "SG",
         "postalCode": "94678",
-        "stateOrProvince": "CA",
+        "stateOrProvince": "SG",
         "street": "Brannan Street",
         "street2": "274"
       },
+      "nationality":"SG",
       "phone": {
-        "number": "+14153671502",
+        "countryCode": "SG",
+        "number": "65978717",
         "type": "mobile"
       },
       "name": {
-        "firstName": "Simone",
-        "lastName": "Hopper"
+        "firstName": "Victor",
+        "lastName": "Tang"
       },
       "birthData": {
-        "dateOfBirth": "1981-12-01"
+        "dateOfBirth": "1990-12-01"
       },
-      "email": "s.hopper@example.com",
-      "identificationData":{
-        "number":"113654424",
-        "type":"driversLicense"
-      }
+      "email": "s.hopper@example.com"
     }
 };
 

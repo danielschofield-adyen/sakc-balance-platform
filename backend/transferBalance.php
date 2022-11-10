@@ -1,5 +1,4 @@
 <?php
-$_SESSION["balanceAccountId"] = "BA3227C223222C5GWT74G8QNT";
 /**
  * Adyen Checkout Example (https://www.adyen.com/)
  * Copyright (c) 2019 Adyen BV (https://www.adyen.com/)
@@ -21,7 +20,7 @@ if (file_get_contents('php://input') != '') {
 //set api key, merchant account and url
 $apikey = $_ENV["PLATFORM_APIKEY"]; //update with platform or checkout api keys
 $merchantAccount = $_ENV["MERCHANT_ACCOUNT"]; //not using this
-$url = "https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/".$_SESSION["balanceAccountId"]; //call endpoint here
+$url = "https://balanceplatform-api-test.adyen.com/btl/v3/transfers"; //call endpoint here
 
 //Add any additional data not sent in the request
 $data = [];
@@ -33,23 +32,23 @@ $json_data = json_encode(array_merge($data, $request));
 $curlAPICall = curl_init();
 
 // Set to POST
-//curl_setopt($curlAPICall, CURLOPT_CUSTOMREQUEST, "GET");
+curl_setopt($curlAPICall, CURLOPT_CUSTOMREQUEST, "POST");
 
 // Will return the response, if false it print the response
 curl_setopt($curlAPICall, CURLOPT_RETURNTRANSFER, true);
 
 // Add JSON message
-//curl_setopt($curlAPICall, CURLOPT_POSTFIELDS, $json_data);
-curl_setopt($curlAPICall, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($curlAPICall, CURLOPT_POSTFIELDS, $json_data);
+
 // Set the url
 curl_setopt($curlAPICall, CURLOPT_URL, $url);
-curl_setopt($curlAPICall, CURLOPT_HEADER, 0);
 
 // Api key
 curl_setopt($curlAPICall, CURLOPT_HTTPHEADER,
     array(
         "X-Api-Key: " . $apikey,
-        "Content-Type: application/json"
+        "Content-Type: application/json",
+        "Content-Length: " . strlen($json_data)
     )
 );
 
