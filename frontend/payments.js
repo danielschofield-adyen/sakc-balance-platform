@@ -5,7 +5,7 @@ async function callPaymentsTEST()
         // "merchantAccount":"Demo_FoodPanda",
         "amount":{
             "value":amountInput.value*100,
-            "currency":"USD"
+            "currency":"SGD"
         },
         "paymentMethod":{
             "type": "scheme",
@@ -35,12 +35,12 @@ async function callPayments(state)
         // "merchantAccount":"Demo_FoodPanda",
         "amount":{
             "value":totalCartCost*100,
-            "currency":"USD"
+            "currency":"SGD"
         },
         "paymentMethod": state.data.paymentMethod, //Required
         "reference": orderRef, //Required
         "channel": "Web",
-        "countryCode": "US",
+        "countryCode": "SG",
         "origin": "http://localhost:3000/apiCallExample.html",
         // "returnUrl": `http://localhost:3000/backend/handleShopperRedirect?orderRef=${orderRef}`, //Required for redirect flow
         "returnUrl": "http://localhost:3000/shoppingCart.html",

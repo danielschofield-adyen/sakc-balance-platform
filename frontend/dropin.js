@@ -2,13 +2,9 @@ var dropin;
 
 async function callDropin()
 {
-    let paymentMethodResponse = await callPaymentMethods()
+    callUnmountPayment()
 
-    //do logic with response
-    if (dropin != undefined) {
-        dropin.unmount();
-        console.log("Reloading Drop-in")
-    }
+    let paymentMethodResponse = await callPaymentMethods()
 
     configuration = {
         paymentMethodsResponse: paymentMethodResponse,
@@ -16,10 +12,10 @@ async function callDropin()
         // clientKey: "{{ env('CLIENT_KEY') }}",
         locale: "en-US",
         environment: "test",
-        countryCode: "US",
+        countryCode: "SG",
         amount: {
-          currency: "USD",
-          value: totalCartCost*100,
+            currency: "SGD",
+            value: totalCartCost*100,
         },
         onSubmit: (state) => { //Assign event handler when pay button is clicked
             if (state.isValid) {
@@ -36,4 +32,5 @@ async function callDropin()
 
     checkout = await AdyenCheckout(configuration);
     dropin = checkout.create("dropin").mount(document.getElementById("dropin-container"));
+
 }
