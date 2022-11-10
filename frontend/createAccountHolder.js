@@ -25,6 +25,6 @@ async function callCreateAccountHolder(id)
 
     //do logic with response
     //create balanceAccounts
-    callBalanceAccounts(response['id']);
+    callCreateBalanceAccounts(response['id']);
 
 }

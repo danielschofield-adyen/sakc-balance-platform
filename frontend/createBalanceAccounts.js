@@ -1,6 +1,6 @@
-async function callBalanceAccounts(accountHolderId)
+async function callCreateBalanceAccounts(accountHolderId)
 {
-    const url = "backend/balanceAccounts.php";
+    const url = "backend/createBalanceAccounts.php";
     const data = {
  "accountHolderId":accountHolderId,
   "description":"Main balance account",
