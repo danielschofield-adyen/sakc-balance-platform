@@ -23,8 +23,4 @@ async function callCreateAccountHolder(id)
     //make sure to include frontend/utils.js to any frontend html page that needs to make API calls
     let response = await callServer(url, data);
     return response;
-    //do logic with response
-    //create balanceAccounts
-    //callBalanceAccounts(response['id']);
-
 }

@@ -6,12 +6,13 @@ async function callLegalEntity(data)
     "individual": {
       "residentialAddress": {
         "city": "VALID",
-        "country": "US",
+        "country": "SG",
         "postalCode": "94678",
-        "stateOrProvince": "CA",
+        "stateOrProvince": "SG",
         "street": "Brannan Street",
         "street2": "274"
       },
+      "nationality":"SG",
       "phone": {
         "number": "+18004444444",
         "type": "mobile"

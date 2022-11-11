@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>FoodPanda - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -20,6 +20,25 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.css" rel="stylesheet">
+    <script src="../frontend/utils.js"></script>
+    <script src="../frontend/paymentMethods.js"></script>
+    <script src="../frontend/legalEntity.js"></script>
+    <script src="../frontend/createAccountHolder.js"></script>
+    <script src="../frontend/createBalanceAccounts.js"></script>
+    <script src="../frontend/getBalance.js"></script>
+    <script src="../frontend/payments.js"></script>
+    <script src="../frontend/handleServerResponse.js"></script>
+    <script src="../frontend/handleShopperRedirect.js"></script>
+    <script src="../frontend/handleSubmission.js"></script>
+    <script src="../frontend/paymentsDetails.js"></script>
+    <script src="../frontend/dropin.js"></script>
+    <script src="../frontend/template.js"></script>
+    <script src="../frontend/transferBalance.js"></script>
+    <script>
+    window.onload = async function() {
+    callGetBalance();
+  };
+    </script>
 
 </head>
 
@@ -383,8 +402,9 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                                Wallet Balance</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="getBalance" hidden="true">Dummy tex</div>
+
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -401,8 +421,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                                Stored card</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">***********1111</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -418,7 +438,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">No of transactions done
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">

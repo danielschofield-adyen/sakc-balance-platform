@@ -1,41 +1,26 @@
-var dropin;
+var wallet;
+var availableBalance = 18;    // ********* Remove once GET to Balance Account is ready *******
 
 async function callWallet()
 {
-    let paymentMethodResponse = await callPaymentMethods()
+    var balanceAccountId = '<%= Session["balanceAccountId"] ?? "" %>';
+    console.log("balance id is", balanceAccountId)
 
-    //do logic with response
-    if (dropin != undefined) {
-        dropin.unmount();
-        console.log("Reloading Drop-in")
+    callUnmountPayment()
+    console.log("Loading Wallet")
+
+    checkBalanceAccountResponse = await callGetBalance() //call Balance Account to check the balance
+    let availableBalance = parseFloat((checkBalanceAccountResponse.balances[0].available/100).toFixed(2));
+
+    document.getElementById("availableBalance").innerHTML = availableBalance.toFixed(2);
+    document.getElementById("wallet").removeAttribute("hidden");
+
+
+    if (availableBalance >= totalCartCost){
+        wallet = document.getElementById("confirmTransfer").innerHTML = '<p>Please confirm you want to transfer</p>';
+        document.getElementById("btn-transfer").removeAttribute("hidden");
+    } else {
+        wallet = document.getElementById("otherPayments").innerHTML = '<p>You do not have enough balance in your Wallet!</p><p>Please pay via Credit Card or split payments</p>';
     }
-
-    configuration = {
-        paymentMethodsResponse: paymentMethodResponse,
-        clientKey: "test_H7MSZIX745E3DAIO4AO6MKBMWEKWMR6S",  //Harded for now, tried to pull from backend and .env but not successful. Can someone do it?
-        // clientKey: "{{ env('CLIENT_KEY') }}",
-        locale: "en-US",
-        environment: "test",
-        countryCode: "US",
-        amount: {
-          currency: "USD",
-          value: amountInput.value*100,
-        },
-        onSubmit: (state) => { //Assign event handler when pay button is clicked
-            if (state.isValid) {
-                callPayments(state);
-            }
-        },
-        onAdditionalDetails: (state) => { //Assign event handler when additional details are required
-            CallPaymentsDetails(state.data)
-        },
-        onError: (state) => {
-            console.log(state);
-        }
-    }
-
-    checkout = await AdyenCheckout(configuration);
-    dropin = checkout.create("dropin").mount(document.getElementById("dropin-container"));
-
-
 }
+

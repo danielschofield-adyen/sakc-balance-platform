@@ -13,7 +13,14 @@
     <script src="frontend/handleShopperRedirect.js"></script>
     <script src="frontend/handleSubmission.js"></script>
     <script src="frontend/paymentsDetails.js"></script>
+    <script src="frontend/wallet.js"></script>
+    <script src="frontend/split.js"></script>
+    <script src="frontend/unmountPayment.js"></script>
     <script src="frontend/dropin.js"></script>
+    <script src="frontend/getBalance.js"></script>
+    <script src="frontend/transferBalance.js"></script>
+    <script src="frontend/displayResponse.js"></script>
+    <script src="frontend/topUpWallet.js"></script>
  </head>
  <body onload="handleShopperRedirect()">
    <header class="main-header">
@@ -42,15 +49,46 @@
       </h3>
       <br>
       <br>
+      <h3 class="wallet" id="wallet" hidden="true">
+         Wallet Balance: $ 
+         <span id="availableBalance">0.00</span>
+      </h3>
       <h2>Payment</h2>
       <button style="width:300px;height:100px;font-size:32;" onclick="callWallet()">Wallet</button>
       <br>
       <br>
-      <button style="width:300px;height:100px;font-size:32;" onclick="callDropin()">Card</button>
+      <button style="width:300px;height:100px;font-size:32;" onclick="callDropin(totalCartCost)">Card</button>
       <br>
       <br>
       <button style="width:300px;height:100px;font-size:32;" onclick="callSplit()">Split (Wallet + Card)</button>
       <br>
+      <br>
+      <button style="width:300px;height:100px;font-size:32;" onclick="callTopUpWallet()">Top Up Wallet</button>
+      <br>
+      <br>
+      <div id="wallet-container">
+         <div id="otherPayments"></div>
+         <div id="confirmTransfer"></div>
+         <button id="btn-transfer" hidden="true" style="width:150px;height:50px;font-size:32;" onclick="callTransferBalance(totalCartCost)">Transfer</button>
+         <div id="transferResponse"></div>
+      </div>
+      <div id="split-container">
+         <div id="splitWallet" hidden="true">
+            <label for="splitWalletAmountInput">Wallet Amount to use: </label>
+            <input type="number" min="0" id="splitWalletAmountInput" name="splitWalletAmountInput" value="0" style="width: 4em">
+         </div>
+         <br>
+         <div id="splitWarning"></div>
+         <button id="btn-split" hidden="true" style="width:150px;height:50px;font-size:32;" onclick="callSplitPay()">Pay</button>
+      </div>
+      <div id="topup-container">
+         <div id="topUpAmount-container" hidden="true">
+            <label for="topUpAmountInput">Top Up Amount: </label>
+            <input type="number" min="0" id="topUpAmountInput" name="topUpAmountInput" value="0" style="width: 4em">
+         </div>
+         <br>
+         <button id="btn-topup" hidden="true" style="width:150px;height:50px;font-size:32;" onclick="callTopUpConfirmed()">Top Up</button>
+      </div>
       <br>
       <div id="dropin-container"></div>
    </div>
