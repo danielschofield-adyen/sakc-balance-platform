@@ -1,18 +1,18 @@
-async function callTransferBalance()
+async function callTransferBalance(amountValue)
 {
     const url = "backend/transferBalance.php";
     const data = {
     "amount": {
         "currency": "SGD",
-        "value": 100
+        "value": amountValue*100
     },
-    "balanceAccountId": "BA3227C223222C5GWT74G8QNT",
+    "balanceAccountId": "BA32272223222C5GWSL23DN8Z",
     "category" : "internal",
     "counterparty": {
-        "balanceAccountId": "BA3227C223222B5GGM9W8DJZH"
+        "balanceAccountId": "BA32272223222C5GVVCB5D45D"
     },
-    "description": "Using wallet foodPanda",
-    "reference": "23456"
+    "description": "Transfer using wallet on FoodPanda",
+    "reference": orderRef
 };
 
     //call serve generic function from frontend/utils.js
@@ -20,5 +20,5 @@ async function callTransferBalance()
     let response = await callServer(url,data);
 
     //do logic with response
-  console.log(response);
+    displayResponse(response);
 }

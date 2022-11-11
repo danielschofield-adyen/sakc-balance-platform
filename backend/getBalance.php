@@ -1,6 +1,9 @@
 <?php
 $_SESSION["balanceAccountId"] = "BA32272223222C5GWSL23DN8Z";
+<<<<<<< Updated upstream
 $_SESSION["AccountHolderID"] = "AH3227C223222C5GWSKZV8K26";
+=======
+>>>>>>> Stashed changes
 /**
  * Adyen Checkout Example (https://www.adyen.com/)
  * Copyright (c) 2019 Adyen BV (https://www.adyen.com/)

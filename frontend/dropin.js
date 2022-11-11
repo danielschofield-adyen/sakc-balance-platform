@@ -1,6 +1,6 @@
 var dropin;
 
-async function callDropin()
+async function callDropin(amountValue, splitOne, splitTwo)
 {
     callUnmountPayment()
 
@@ -15,11 +15,11 @@ async function callDropin()
         countryCode: "SG",
         amount: {
             currency: "SGD",
-            value: totalCartCost*100,
+            value: amountValue*100,
         },
         onSubmit: (state) => { //Assign event handler when pay button is clicked
             if (state.isValid) {
-                callPayments(state);
+                callPayments(state, splitOne, splitTwo);
             }
         },
         onAdditionalDetails: (state) => { //Assign event handler when additional details are required

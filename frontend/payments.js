@@ -28,8 +28,13 @@ async function callPaymentsTEST()
 //Global order number
 const orderRef = Math.floor(Math.random() * Date.now()); //Unique ref for the transaction
 
-async function callPayments(state)
+async function callPayments(state, splitOne, splitTwo)
 {
+    if ((splitOne && splitTwo) == undefined){
+        splitOne = 0.9;
+        splitTwo = 0.1;
+    }
+
     const url = "backend/payments.php";
     const data = {
         // "merchantAccount":"Demo_FoodPanda",
@@ -42,7 +47,6 @@ async function callPayments(state)
         "channel": "Web",
         "countryCode": "SG",
         "origin": "http://localhost:3000/apiCallExample.html",
-        // "returnUrl": `http://localhost:3000/backend/handleShopperRedirect?orderRef=${orderRef}`, //Required for redirect flow
         "returnUrl": "http://localhost:3000/shoppingCart.html",
         "browserInfo": state.data.browserInfo,
         "authenticationData": { //required for native 3DS2
@@ -50,23 +54,23 @@ async function callPayments(state)
                 "nativeThreeDS": "preferred"
             }
          },
-        // "splits":[
-        //     {
-        //          "amount":{
-        //              "value":(amountInput.value*100)*.9
-        //          },
-        //          "type":"BalanceAccount",
-        //          "account":"BA32272223222C5GW6JQ3B882",
-        //          "reference":"hjsvhdsguvygsuyv"
-        //       },
-        //       {
-        //          "amount":{
-        //              "value":(amountInput.value*100)*.1
-        //          },
-        //          "type":"Commission",
-        //          "reference":"jhsdfvhjgvudgsu"
-        //       }
-        //    ]
+        "splits":[
+            {
+                 "amount":{
+                     "value":Math.round((totalCartCost*100)*splitOne)
+                 },
+                 "type":"BalanceAccount",
+                 "account":"BA32272223222C5GWSL23DN8Z",
+                 "reference":"Top Up"
+              },
+              {
+                 "amount":{
+                     "value":Math.round((totalCartCost*100)*splitTwo)
+                 },
+                 "type":"Commission",
+                 "reference":"Top Up"
+              }
+           ]
     };
 
     let response = await handleSubmission(url, data);

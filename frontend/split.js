@@ -14,31 +14,27 @@ async function callSplit()
 
 async function callSplitPay()
 {
-    // ********* Remove once GET to Balance Account is ready *******
-    checkBalanceAccountResponse = parseFloat(Number(document.getElementById('checkBalanceAccountResponse').value).toFixed(2));
-    console.log("Balance Account: ", checkBalanceAccountResponse)
-    // ********* Remove once GET to Balance Account is ready *******
-    // use checkBalanceAccountResponse to query Balance Account
+    checkBalanceAccountResponse = await callGetBalance() //call Balance Account to check the balance
+    let availableBalance = parseFloat((checkBalanceAccountResponse.balances[0].available/100).toFixed(2));
 
-    // let checkBalanceAccountResponse = await callPaymentMethods() //call Balance Account to check the balance
-
+    document.getElementById("availableBalance").innerHTML = availableBalance.toFixed(2);
+    document.getElementById("wallet").removeAttribute("hidden");
+    
+    console.log("Balance Account: ", availableBalance)
     
     splitWalletAmountInput = parseFloat(Number(document.getElementById('splitWalletAmountInput').value).toFixed(2));
     console.log("Split Wallet Amount: ", splitWalletAmountInput)
 
-    console.log("inside callSplitPay")
-
-    if (splitWalletAmountInput <= checkBalanceAccountResponse){
-        console.log("inside if")
+    if (splitWalletAmountInput <= availableBalance){
         split = document.getElementById("splitWarning").innerHTML = '<div id="splitWarning"></div>';
-        //call transfer with splitWalletAmountInput
+        callTransferBalance(splitWalletAmountInput)
 
-        //call dropin with difference from splitWalletAmountInput and totalCartCost
+        //Maybe add error checks, if successful transfer then continue to dropin, if not stop flow
+
         totalCartCost = totalCartCost - splitWalletAmountInput;
-        callDropin()
+        callDropin(totalCartCost)
 
     } else {
-        console.log("inside else")
         document.getElementById("btn-split").setAttribute("hidden", true);
         split = document.getElementById("splitWarning").innerHTML = '<p>You do not have enough balance in your Wallet!</p>';
     }
