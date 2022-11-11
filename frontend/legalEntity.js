@@ -1,7 +1,7 @@
-async function callLegalEntity()
+async function callLegalEntity(data)
 {
     const url = "backend/legalEntity.php";
-    const data = {
+    const json = {
     "type": "individual",
     "individual": {
       "residentialAddress": {
@@ -13,17 +13,17 @@ async function callLegalEntity()
         "street2": "274"
       },
       "phone": {
-        "number": "+14153671502",
+        "number": "+18004444444",
         "type": "mobile"
       },
       "name": {
-        "firstName": "Simone",
-        "lastName": "Hopper"
+        "firstName": data["firstName"],
+        "lastName": data["lastName"]
       },
       "birthData": {
-        "dateOfBirth": "1981-12-01"
+        "dateOfBirth": data["dateOfBirth"]
       },
-      "email": "s.hopper@example.com",
+      "email": data["email"],
       "identificationData":{
         "number":"113654424",
         "type":"driversLicense"
@@ -31,8 +31,7 @@ async function callLegalEntity()
     }
 };
 
-    let response = await callServer(url, data);
+    let response = await callServer(url, json);
     //create AccountHolder
-    callCreateAccountHolder(response['id']);
-    //do logic with response
+    return response;
 }

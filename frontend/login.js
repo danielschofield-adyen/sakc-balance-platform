@@ -4,29 +4,90 @@ async function attemptLogin()
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
 
-    checkUsernameDb(username)
+    var json = {
+        "username":username,
+        "password":password
+    }
+
+    checkUsernameDb(json);
 }
 
-async function checkUsernameDb(username)
+async function checkUsernameDb(data)
 {
-    var message = document.getElementById("message");
     const dbQueryUrl = "backend/dbQuery.php";
+    const sessionUrl = "backend/createSession.php"
     const dashboardUrl = "../dashboard.php";
-    const select = "SELECT username FROM users WHERE username = " + username;
-    let response = await callServer(dbQueryUrl, select);
-    if(!response)
+    const selectUserSQL = "SELECT * FROM \"LEM_IndividualDetails\" WHERE \"username\"='"+data["username"]+"'";
+    
+    /* --- Select from DB --- */
+    let selectUserResponse = await callServer(dbQueryUrl, selectUserSQL);
+    if(!selectUserResponse)
     {
-        console.log("No username found");
-        message.innerText = "User not found by Username. Please Register";
-        message.hidden = false;
+        showMessage("User not found by Username. Please Register");
+        return;
     }
-    else
+
+    showMessage("User found! Logging in...");
+
+    /* --- Select Account Holder from DB --- */
+    var selectAccountHolderSQL = getAccountHolderSQL(selectUserResponse);
+    let accountHolderResponse = await callServer(dbQueryUrl, selectAccountHolderSQL);
+    if(!accountHolderResponse)
+        return false;
+
+    /* --- Select Balance Account from DB --- */
+    var selectBalanceAccountSQL = getBalanceAccountSQL(accountHolderResponse);
+    let balanceAccountResponse = await callServer(dbQueryUrl, selectBalanceAccountSQL);
+    if(!balanceAccountResponse)
+        return false;
+
+    var userResponseJSON = JSON.parse(selectUserResponse);
+    var accountHolderResponseJSON = JSON.parse(accountHolderResponse);
+    var balanceAccountResponseJSON = JSON.parse(balanceAccountResponse);
+
+    let json = {
+        "username":userResponseJSON["username"],
+        "firstName":userResponseJSON["firstName"],
+        "lastName":userResponseJSON["lastName"],
+        "emailAddress":userResponseJSON["email"],
+        "legalEntityId":userResponseJSON["legalEntityId"],
+        "accountHolderId":accountHolderResponseJSON["accountHolderID"],
+        "balanceAccountId":balanceAccountResponseJSON["balanceAccountsID"]
+    }
+
+    console.log(json);
+
+    /* --- Redirect to Dashboard ---*/
+    showMessage("Redirecting to dashboard");
+    let sessionResponse = await callServer("backend/createSession.php",json);
+    console.log("Session response: "+sessionResponse);
+    window.location.href = '../dashboard/index.php'
+}
+
+function showMessage(messageText,toShow = true)
+{
+    if(!message){
+        message = document.getElementById("message");
+    }
+
+    message.innerText = messageText;
+    message.hidden = !toShow;
+}
+
+function getAccountHolderSQL(data)
+{
+    if(data.length > 0)
     {
-        message.innerText = "User found!";
-        message.hidden = false;
-        data = {
-            "username":username,
-        }
-        callServer(dashboardUrl,data);
+        var array = JSON.parse(data[0]);
+        return "SELECT * FROM \"AFP_accountHolderDetails\" WHERE \"legalEntityId\"='"+array["legalEntityId"]+"'";
+    }
+}
+
+function getBalanceAccountSQL(data)
+{
+    if(data.length > 0)
+    {
+        var array = JSON.parse(data[0]);
+        return "SELECT * FROM \"AFP_balanceAccountsDetails\" WHERE \"accountHolderID\"='"+array["accountHolderID"]+"'";
     }
 }
