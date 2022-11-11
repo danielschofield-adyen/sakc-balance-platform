@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
  <head>  
     <script id="adyen-web-script" src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.12.0/adyen.js"

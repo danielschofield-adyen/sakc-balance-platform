@@ -6,7 +6,7 @@ async function callTransferBalance(amountValue)
         "currency": "SGD",
         "value": amountValue*100
     },
-    "balanceAccountId": "BA32272223222C5GWSL23DN8Z",
+    // "balanceAccountId": "BA32272223222C5GWSL23DN8Z",
     "category" : "internal",
     "counterparty": {
         "balanceAccountId": "BA32272223222C5GVVCB5D45D"

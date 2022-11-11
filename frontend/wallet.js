@@ -3,9 +3,6 @@ var availableBalance = 18;    // ********* Remove once GET to Balance Account is
 
 async function callWallet()
 {
-    var balanceAccountId = '<%= Session["balanceAccountId"] ?? "" %>';
-    console.log("balance id is", balanceAccountId)
-
     callUnmountPayment()
     console.log("Loading Wallet")
 
