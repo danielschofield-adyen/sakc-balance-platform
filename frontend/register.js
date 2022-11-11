@@ -105,7 +105,7 @@ async function doRegistration(data)
     showMessage("Redirecting to dashboard");
     let sessionResponse = await callServer("backend/createSession.php",json);
     console.log("Session response: "+sessionResponse);
-    window.location.href = '../dashboard/index.php'
+    window.location.href = '../dashboard/dashboard.php'
 
 }
 

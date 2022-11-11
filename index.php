@@ -1,56 +1,59 @@
-<html>
- <head>
-    <script type="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script type="javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script type="javascript" src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
-    <style url="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"></style>
-    <style url="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css"></style>
-    
-    <script src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.12.0/adyen.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="login/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="login/css/style.css">
+
+    <!-- Javascript to handle login -->
+    <script src="frontend/login.js"></script>
     <script src="frontend/utils.js"></script>
-    <script src="frontend/paymentMethods.js"></script>
- </head>
- <body>
- <table id="example" class="table table-striped table-bordered" style="width:100%">
+</head>
+<body>
 
- <?php
+    <div class="main">
+        <!-- Sign in  Form -->
+        <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="login/images/food-panda-logo.png" alt="sing up image"></figure>
+                        <a href="register.html" class="signup-image-link" >Create an account</a>
+                    </div>
 
-$csv = array();
-$file = fopen('data/settlement_detail_report_batch_41.csv', 'r');
-$iterator = 0;
-while (($result = fgetcsv($file)) !== false)
-{
-    $csv[] = $result;
-}
+                    <div class="signin-form">
+                        <h2 class="form-title">Login</h2>
+                        <form method="POST" class="register-form" id="login-form" action="javascript:attemptLogin();">
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="username" id="username" placeholder="Username"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="password" id="password" placeholder="Password"/>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                            </div>
+                            <div class="">
+                                <p id="message" hidden="true">Dummy text</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-foreach($csv as $element)
-{
-    foreach($element as $child)
-    {
-        if($iterator == 0)
-        {
-            echo '<th>';
-        }
-        else
-        {
-            echo '<td>';
-        }
-        print_r($child);
-        if($iterator == 0)
-        {
-            echo '</th>';
-        }
-        else
-        {
-            echo '</td>';
-        }
-    }
-    $iterator++;
-    echo '</tr>';
-}
+    </div>
 
-fclose($file);
-?>
-</table>
- </body>
+    <script src="login/vendor/jquery/jquery.min.js"></script>
+    <script src="login/js/main.js"></script>
+</body>
 </html>
