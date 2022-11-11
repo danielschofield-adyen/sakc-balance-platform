@@ -24,6 +24,8 @@ async function attemptRegistration()
 
 async function doRegistration(data)
 {
+    startLoadingAnimation();
+
     var message = document.getElementById("message");
     const dbQueryUrl = "backend/dbQuery.php";
     const dashboardUrl = "../dashboard.php";
@@ -117,6 +119,30 @@ function showMessage(messageText,toShow = true)
 
     message.innerText = messageText;
     message.hidden = !toShow;
+}
+
+function stopLoadingAnimation()
+{
+    var message = document.getElementById("message");
+    var greyOut = document.getElementById("grey-out");
+    var loadingImage = document.getElementById("loading-image");
+
+    message.hidden = true;
+    greyOut.hidden = true;
+    loadingImage.hidden = true;
+
+}
+
+function startLoadingAnimation()
+{
+    var message = document.getElementById("message");
+    var greyOut = document.getElementById("grey-out");
+    var loadingImage = document.getElementById("loading-image");
+
+    message.hidden = false;
+    greyOut.hidden = false;
+    loadingImage.hidden = false;
+
 }
 
 function handleLegalEntityError(response)

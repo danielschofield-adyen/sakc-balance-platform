@@ -4,21 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
+    <title>FoodPanda - Login</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="login/fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Main css -->
     <link rel="stylesheet" href="login/css/style.css">
+    <link rel="stylesheet" href="style/style.css">
 
     <!-- Javascript to handle login -->
     <script src="frontend/login.js"></script>
     <script src="frontend/utils.js"></script>
 </head>
-<body>
+<body style="margin:0px">
+
+    <div id="grey-out" hidden="true">
+
+    </div>
+
 
     <div class="main">
+        <div class="container">
+            <div id="foodpanda-loading-screen">
+                <img id="loading-image" hidden="true" src="login/images/foodpanda_loading.gif" width="250" />
+                <p id="message" hidden="true" ></p>
+            </div>
+        </div>
         <!-- Sign in  Form -->
         <section class="sign-in">
             <div class="container">
@@ -41,9 +53,6 @@
                             </div>
                             <div class="form-group form-button">
                                 <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
-                            </div>
-                            <div class="">
-                                <p id="message" hidden="true">Dummy text</p>
                             </div>
                         </form>
                     </div>

@@ -14,6 +14,8 @@ async function attemptLogin()
 
 async function checkUsernameDb(data)
 {
+    startLoadingAnimation();
+
     const dbQueryUrl = "backend/dbQuery.php";
     const sessionUrl = "backend/createSession.php"
     const dashboardUrl = "../dashboard.php";
@@ -62,6 +64,30 @@ async function checkUsernameDb(data)
     let sessionResponse = await callServer("backend/createSession.php",json);
     console.log("Session response: "+sessionResponse);
     window.location.href = '../dashboard/dashboard.php'
+}
+
+function stopLoadingAnimation()
+{
+    var message = document.getElementById("message");
+    var greyOut = document.getElementById("grey-out");
+    var loadingImage = document.getElementById("loading-image");
+
+    message.hidden = true;
+    greyOut.hidden = true;
+    loadingImage.hidden = true;
+
+}
+
+function startLoadingAnimation()
+{
+    var message = document.getElementById("message");
+    var greyOut = document.getElementById("grey-out");
+    var loadingImage = document.getElementById("loading-image");
+
+    message.hidden = false;
+    greyOut.hidden = false;
+    loadingImage.hidden = false;
+
 }
 
 function showMessage(messageText,toShow = true)

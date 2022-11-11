@@ -1,0 +1,33 @@
+#foodpanda-loading-screen
+{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top:20%;
+    text-align: center;
+    z-index:999;
+}
+
+#loading-image
+{
+    margin:auto;
+}
+
+#message
+{
+    z-index:999;
+    color:white;
+    font-style: bold;
+}
+
+#grey-out
+{
+    width:100%;
+    height:100%;
+    position:absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index:2;
+
+}
