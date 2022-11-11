@@ -24,10 +24,10 @@ async function callLegalEntity(data)
       "birthData": {
         "dateOfBirth": data["dateOfBirth"]
       },
-      "email": data["email"],
+      "email": data["emailAddress"],
       "identificationData":{
-        "number":"113654424",
-        "type":"driversLicense"
+        "type":"identityCard",
+        "number":"123456789"
       }
     }
 };

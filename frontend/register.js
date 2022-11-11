@@ -75,7 +75,7 @@ async function doRegistration(data)
 
     /* --- Create Balance Account --- */
     showMessage("Creating Balance Account")
-    let balanceHolderResponse = await callBalanceAccounts(accountHolderResponse["id"]);
+    let balanceHolderResponse = await callCreateBalanceAccounts(accountHolderResponse["id"]);
     if(!accountHolderResponse["id"])
     {
         showMessage("Balance Account Creation Failed, try again")
