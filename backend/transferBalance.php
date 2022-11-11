@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 /**
  * Adyen Checkout Example (https://www.adyen.com/)
  * Copyright (c) 2019 Adyen BV (https://www.adyen.com/)
@@ -23,7 +25,9 @@ $merchantAccount = $_ENV["MERCHANT_ACCOUNT"]; //not using this
 $url = "https://balanceplatform-api-test.adyen.com/btl/v3/transfers"; //call endpoint here
 
 //Add any additional data not sent in the request
-$data = [];
+$data = [
+    "balanceAccountId"=>$_SESSION["balanceAccountId"]
+];
 
 // Convert data to JSON
 $json_data = json_encode(array_merge($data, $request));
