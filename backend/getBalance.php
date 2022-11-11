@@ -1,5 +1,6 @@
 <?php
-$_SESSION["balanceAccountId"] = "BA3227C223222C5GWT74G8QNT";
+$_SESSION["balanceAccountId"] = "BA32272223222C5GWSL23DN8Z";
+$_SESSION["AccountHolderID"] = "AH3227C223222C5GWSKZV8K26";
 /**
  * Adyen Checkout Example (https://www.adyen.com/)
  * Copyright (c) 2019 Adyen BV (https://www.adyen.com/)
