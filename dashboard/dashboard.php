@@ -48,7 +48,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon">
                     <img class="sidebar-icon" src="../../login/images/food-panda-logo.png">
                 </div>
@@ -79,7 +79,7 @@
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Shopping</span>
                 </a>
-                
+
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
@@ -88,32 +88,32 @@
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Sign Up</span>
                 </a>
-                
+
             </li>
 
-            
-            
 
-            
-            
 
-            
-            
 
-            
-            
 
-            
-            
 
-            
+
+
+
+
+
+
+
+
+
+
+
             <hr class="sidebar-divider d-none d-md-block">
 
-            
-            
 
-            
-            
+
+
+
+
 
         </ul>
         <!-- End of Sidebar -->
@@ -134,20 +134,20 @@
 
                     <!-- Topbar Search -->
                     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        
+
                     </form>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        
-                        
 
-                        
-                        
 
-                        
-                        
+
+
+
+
+
+
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -159,10 +159,10 @@
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                
-                                
-                                
-                                
+
+
+
+
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
@@ -181,7 +181,7 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        
+
                     </div>
 
                     <!-- Content Row -->
@@ -346,9 +346,9 @@
                     <div class="row">
 
                         <!-- Content Column -->
-                        
 
-                        
+
+
                     </div>
 
                 </div>
