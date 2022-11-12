@@ -30,9 +30,10 @@
     <script src="../frontend/dropin.js"></script>
     <script src="../frontend/template.js"></script>
     <script src="../frontend/transferBalance.js"></script>
+    <script src="../frontend/dashboardWidgets.js"></script>
     <script>
     window.onload = async function() {
-    callGetBalance();
+    callDashboardWidgets();
   };
     </script>
 
@@ -76,7 +77,7 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fas fa-fw fa-shopping-bag"></i>
                     <span>Shopping</span>
                 </a>
 
@@ -85,7 +86,7 @@
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
+                    <i class="fas fa-fw fa-sign-in-alt"></i>
                     <span>Sign Up</span>
                 </a>
 
@@ -194,12 +195,12 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Wallet Balance</div>
+                                                Wallet</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800" id="getBalance" hidden="true">Dummy tex</div>
 
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -213,8 +214,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Stored card</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">***********1111</div>
+                                                Stored Card</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="getStoredCardDetails">4111 11** **** 1111</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -258,11 +259,11 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                                Next Payout</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">16th November 2022</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>

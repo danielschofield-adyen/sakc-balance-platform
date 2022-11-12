@@ -79,7 +79,7 @@ $img_Url= "https://images.deliveryhero.io/image/fd-sg/LH/".$_GET['code']."-listi
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fas fa-fw fa-shopping-bag"></i>
                     <span>Shopping</span>
                 </a>
 
@@ -88,7 +88,7 @@ $img_Url= "https://images.deliveryhero.io/image/fd-sg/LH/".$_GET['code']."-listi
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
+                    <i class="fas fa-fw fa-sign-in-alt"></i>
                     <span>Sign Up</span>
                 </a>
 
