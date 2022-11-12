@@ -61,7 +61,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="dashboard.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -124,35 +124,56 @@
 
             <!-- Main Content -->
             <div id="content">
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container px-4 px-lg-5">
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
 
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                      <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!" >Delivery</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!" >Pick-up</a></li>
-                      <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"  hidden=true aria-expanded="false">Pick-up</a>
-                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <li><a class="dropdown-item" href="#!">All Products</a></li>
-                              <li><hr class="dropdown-divider" /></li>
-                              <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                              <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                          </ul>
-                      </li>
-                  </ul>
-                  <form class="d-flex">
-                      <button class="btn btn-outline-dark" type="submit">
-                          <i class="bi-cart-fill me-1"></i>
-                          Cart
-                          <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                      </button>
-                  </form>
-              </div>
-          </div>
-      </nav>
+                <!-- Topbar Search -->
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+
+                </form>
+
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav ml-auto">
+
+
+
+
+
+
+
+
+
+
+                    <div class="topbar-divider d-none d-sm-block"></div>
+
+                    <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION["firstName"] . " " . $_SESSION["lastName"] ?></span>
+                            <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+
+
+
+
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </nav>
+            <!-- End of Topbar -->
 
             <!-- Section-->
        <section class="py-5">
@@ -173,7 +194,7 @@
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=y9rp">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
@@ -202,10 +223,10 @@
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=s9wp">Buy Now</a></div>
                            </div>
                        </div>
-                   </div>Fortune Food (Gourmet East Kitchen)
+                   </div>
                    <div class="col mb-5">
                        <div class="card h-100">
                            <!-- Sale badge-->
@@ -222,7 +243,7 @@
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=w5pf">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
@@ -248,7 +269,7 @@
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=x8fe">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
@@ -268,7 +289,7 @@
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=n8kn">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
@@ -287,7 +308,7 @@
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=w9xe">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
@@ -316,7 +337,7 @@
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=y6wd">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
@@ -342,7 +363,7 @@
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=y8bv">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
