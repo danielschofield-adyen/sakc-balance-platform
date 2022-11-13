@@ -1,6 +1,6 @@
 async function callPaymentsTEST()
 {
-    const url = "backend/payments.php";
+    const url = "../backend/payments.php";
     const data = {
         // "merchantAccount":"Demo_FoodPanda",
         "amount":{
@@ -14,10 +14,11 @@ async function callPaymentsTEST()
             "encryptedExpiryYear": "test_2030",
             "encryptedSecurityCode": "test_737"
         },
+        "storePaymentMethod":"true",
         "reference":"Jason via DEMO SAKC",
         "returnUrl":"https://your-company.com/..."
     };
-    
+
     let response = await callServer(url, data);
 
     //do logic with response
@@ -35,7 +36,7 @@ async function callPayments(state, splitOne, splitTwo)
         splitTwo = 0.1;
     }
 
-    const url = "backend/payments.php";
+    const url = "../backend/payments.php";
     const data = {
         // "merchantAccount":"Demo_FoodPanda",
         "amount":{
@@ -46,6 +47,7 @@ async function callPayments(state, splitOne, splitTwo)
         "reference": orderRef, //Required
         "channel": "Web",
         "countryCode": "SG",
+        "storePaymentMethod":"true",
         "origin": "http://localhost:3000/apiCallExample.html",
         "returnUrl": "http://localhost:3000/shoppingCart.html",
         "browserInfo": state.data.browserInfo,

@@ -27,7 +27,16 @@ async function callDropin(amountValue, splitOne, splitTwo)
         },
         onError: (state) => {
             console.log(state);
-        }
+        },
+        paymentMethodsConfiguration: {
+   card: { // Example optional configuration for Cards
+     hasHolderName: true,
+     holderNameRequired: true,
+     enableStoreDetails: true,
+     hideCVC: false, // Change this to true to hide the CVC field for stored cards
+     name: 'Credit or debit card' // onSubmit configuration for card payments. Overrides the global configuration.
+   }
+ }
     }
 
     checkout = await AdyenCheckout(configuration);
