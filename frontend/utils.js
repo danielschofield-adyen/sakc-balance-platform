@@ -61,3 +61,33 @@ async function callServer(url, data) {
     }
 }
 
+
+function showErrorMessage (messageText, toShow = true)
+{
+    message = document.getElementById("errorMessage");
+    message.innerText = messageText;
+    message.hidden = !toShow;
+}
+
+function showMessage(messageText, toShow = true)
+{
+    message = document.getElementById("message");
+    message.innerText = messageText;
+    message.hidden = !toShow;
+}
+
+function showLoadingScreen(messageText = "", toShow = false)
+{
+    var message = document.getElementById("message");
+    var greyOut = document.getElementById("grey-out");
+    var loadingImage = document.getElementById("loading-image");
+
+    message.hidden = !toShow;
+    greyOut.hidden = !toShow;
+    greyOut.style.visibility = !toShow ? "hidden" : "visible";
+    loadingImage.hidden = !toShow;
+
+    showMessage(messageText, toShow);
+}
+
+

@@ -24,27 +24,29 @@ async function attemptRegistration()
 
 async function doRegistration(data)
 {
-    startLoadingAnimation();
+    showLoadingScreen();
 
     var message = document.getElementById("message");
     const dbQueryUrl = "backend/dbQuery.php";
     const dashboardUrl = "../dashboard.php";
     const select = "SELECT * FROM \"LEM_IndividualDetails\" WHERE \"username\"='"+data["username"]+"'";
 
-    showMessage("Checking for user",true)
+    showLoadingScreen("Checking for user", true);
     let selectUserResponse = await callServer(dbQueryUrl, select);
     if(selectUserResponse)
     {
-        showMessage("Username already exists. Please login");
+        showErrorMessage("Username already exists. Please login");
+        showLoadingScreen();
         return;
     }
 
     /* --- Create Legal Entity --- */
-    showMessage("Creating LegalEntity");
+    showLoadingScreen("Creating Legal Entity", true);
     let legalEntityResponse = await callLegalEntity(data);
     if(!legalEntityResponse["id"])
     {
         handleLegalEntityError(legalEntityResponse);
+        showLoadingScreen();
         return;
     }
 
@@ -53,16 +55,18 @@ async function doRegistration(data)
     let insertLegalEntityResponse = await callServer(dbQueryUrl,legalEntityInsertSQL);
     if(insertLegalEntityResponse)
     {
-        showMessage("Error saving Legal Entity")
+        showErrorMessage("Error saving Legal Entity");
+        showLoadingScreen();
         return;
     }
 
     /* --- Create Account Holder --- */
-    showMessage("Creating Account Holder");
+    showLoadingScreen("Creating Account Holder", true);
     let accountHolderResponse = await callCreateAccountHolder(legalEntityResponse["id"]);
     if(!accountHolderResponse["id"])
     {
-        showMessage("Account Holder Creation Failed, try again")
+        showErrorMessage("Account Holder Creation Failed, try again");
+        showLoadingScreen();
         return;
     }
 
@@ -76,11 +80,12 @@ async function doRegistration(data)
     }
 
     /* --- Create Balance Account --- */
-    showMessage("Creating Balance Account")
+    showLoadingScreen("Creating Balance Account", true)
     let balanceHolderResponse = await callCreateBalanceAccounts(accountHolderResponse["id"]);
     if(!accountHolderResponse["id"])
     {
-        showMessage("Balance Account Creation Failed, try again")
+        showErrorMessage("Balance Account Creation Failed, try again")
+        showLoadingScreen();
         return;
     }
 
@@ -99,49 +104,17 @@ async function doRegistration(data)
         "lastName":data["lastName"],
         "emailAddress":data["emailAddress"],
         "legalEntityId":legalEntityResponse["id"],
+        "type":legalEntityResponse["type"],
         "accountHolderId":accountHolderResponse["id"],
         "balanceAccountId":balanceHolderResponse["id"]
     }
 
     /* --- Redirect to Dashboard ---*/
-    showMessage("Redirecting to dashboard");
+    showLoadingScreen("Redirecting to dashboard", true);
     let sessionResponse = await callServer("backend/createSession.php",json);
+    showLoadingScreen();
     console.log("Session response: "+sessionResponse);
     window.location.href = '../dashboard/dashboard.php'
-
-}
-
-function showMessage(messageText,toShow = true)
-{
-    if(!message){
-        message = document.getElementById("message");
-    }
-
-    message.innerText = messageText;
-    message.hidden = !toShow;
-}
-
-function stopLoadingAnimation()
-{
-    var message = document.getElementById("message");
-    var greyOut = document.getElementById("grey-out");
-    var loadingImage = document.getElementById("loading-image");
-
-    message.hidden = true;
-    greyOut.hidden = true;
-    loadingImage.hidden = true;
-
-}
-
-function startLoadingAnimation()
-{
-    var message = document.getElementById("message");
-    var greyOut = document.getElementById("grey-out");
-    var loadingImage = document.getElementById("loading-image");
-
-    message.hidden = false;
-    greyOut.hidden = false;
-    loadingImage.hidden = false;
 
 }
 
@@ -158,7 +131,7 @@ function handleLegalEntityError(response)
     {
         invalidField = "No reason given."
     }
-    showMessage("[Status Code: " + statusCode + "] " + detail +". Reason: " + invalidField, true);
+    showErrorMessage("[Status Code: " + statusCode + "] " + detail +". Reason: " + invalidField, true);
 }
 
 function getLegalEntityInsertSQL(data, response)
@@ -197,8 +170,6 @@ function getAccountHolderSQL(response)
 function getBalanceAccountHolderSQL(response)
 {
     var balances = response["balances"];
-    console.log(balances);
-    console.log(balances[0]["available"]);
 
     var insert = "INSERT INTO \"AFP_balanceAccountsDetails\" (\"accountHolderID\",\"balanceAccountsID\" ,\"balances_available\",\"balances_balance\",\"balances_currency\",\"balances_reserved\",\"defaultCurrencyCode\",\"description\",\"sweepsID\") VALUES ("
     + "'" + response["accountHolderId"] + "'" + ","
