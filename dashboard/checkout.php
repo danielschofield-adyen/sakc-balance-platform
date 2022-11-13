@@ -1,6 +1,7 @@
 <?php session_start();
 $img_Url= "https://images.deliveryhero.io/image/fd-sg/LH/".$_GET['code']."-listing.jpg?width=600&amp;height=600&quot";
 $item_price= $_GET['price'];
+$item_Name=urldecode($_GET['itemName']);
 
 ?>
 
@@ -214,14 +215,14 @@ $item_price= $_GET['price'];
 
                 <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
                   <!-- Data -->
-                  <p><strong>Blue denim shirt</strong></p>
-                  <p>Color: blue</p>
-                  <p>Size: M</p>
-                  <button type="button" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
+                  <p></p>
+                  <p><strong><?php echo "$item_Name";?></strong></p>
+                  <p></p>
+                  <button type="button" hidden=true class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
                     title="Remove item">
                     <i class="fas fa-trash"></i>
                   </button>
-                  <button type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip"
+                  <button type="button" hidden=true class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip"
                     title="Move to the wish list">
                     <i class="fas fa-heart"></i>
                   </button>

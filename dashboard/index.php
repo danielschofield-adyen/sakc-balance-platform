@@ -182,7 +182,7 @@
                         <h1 class="h3 mb-0 text-gray-800">Shopping</h1>
 
                     </div>
-            
+
 
 
 
@@ -204,7 +204,7 @@
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=y9rp&price=50">Buy Now</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=y9rp&price=50&itemName=Encik Tan (Bedok Mall)">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
@@ -234,7 +234,7 @@
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=s9wp&price=40">Buy Now</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=s9wp&price=40&itemName=Fortune Food (Gourmet East Kitchen)">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
@@ -256,7 +256,7 @@
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=w5pf&price=18">Buy Now</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=w5pf&price=18&itemName=A-One Signature (Tampines One)">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
@@ -284,7 +284,7 @@
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=x8fe&price=38">Buy Now</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=x8fe&price=38&Itemname=O'Braim Express">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
@@ -306,7 +306,7 @@
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=n8kn&price=18">Buy Now</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=n8kn&price=18&itemName=Thunder tea">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
@@ -325,7 +325,7 @@
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=w9xe&price=40">Buy Now</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=w9xe&price=40&itemName=Yam Mee Teochew Fishball Noodles (Bedok)">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
@@ -356,7 +356,7 @@
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=y6wd&price=28">Buy Now</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=y6wd&price=28&itemName=Bubble tea">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
@@ -383,7 +383,7 @@
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=y8bv&price=50">Buy Now</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=y8bv&price=50&itemName=The Alley (Tampines Central)">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
