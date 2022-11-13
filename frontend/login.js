@@ -14,7 +14,24 @@ async function attemptLogin()
 
 async function checkUsernameDb(data)
 {
-    startLoadingAnimation();
+    showLoadingScreen("Checking for user", true);
+
+    if(data["username"] === "admin")
+    {
+        let json = {
+            "username":"admin",
+            "firstName":"FoodPanda",
+            "lastName":"",
+            "emailAddress":"",
+            "legalEntityId":"NEED LEGAL ENTITY OF FOODPANDA",
+            "type":"business",
+            "accountHolderId":"NEED ACCOUNT HOLDER OF FOODPANDA",
+            "balanceAccountId":"NEED BALANCE ACCOUNT OF FOODPANDA"
+        }
+
+        redirectToDashboard(json);
+        return;
+    }
 
     const dbQueryUrl = "backend/dbQuery.php";
     const sessionUrl = "backend/createSession.php"
@@ -25,11 +42,12 @@ async function checkUsernameDb(data)
     let selectUserResponse = await callServer(dbQueryUrl, selectUserSQL);
     if(!selectUserResponse)
     {
-        showMessage("User not found by Username. Please Register");
+        showErrorMessage("User not found by Username. Please Register");
+        showLoadingScreen();
         return;
     }
 
-    showMessage("User found! Logging in...");
+    showLoadingScreen("User found! Logging in...", true);
 
     /* --- Select Account Holder from DB --- */
     var selectAccountHolderSQL = getAccountHolderSQL(selectUserResponse);
@@ -53,51 +71,24 @@ async function checkUsernameDb(data)
         "lastName":userResponseJSON["lastName"],
         "emailAddress":userResponseJSON["email"],
         "legalEntityId":userResponseJSON["legalEntityId"],
+        "type":userResponseJSON["type"],
         "accountHolderId":accountHolderResponseJSON["accountHolderID"],
         "balanceAccountId":balanceAccountResponseJSON["balanceAccountsID"]
     }
 
     console.log(json);
 
-    /* --- Redirect to Dashboard ---*/
-    showMessage("Redirecting to dashboard");
-    let sessionResponse = await callServer("backend/createSession.php",json);
-    console.log("Session response: "+sessionResponse);
-    window.location.href = '../dashboard/dashboard.php'
+    redirectToDashboard(json);
 }
 
-function stopLoadingAnimation()
+async function redirectToDashboard(json)
 {
-    var message = document.getElementById("message");
-    var greyOut = document.getElementById("grey-out");
-    var loadingImage = document.getElementById("loading-image");
-
-    message.hidden = true;
-    greyOut.hidden = true;
-    loadingImage.hidden = true;
-
-}
-
-function startLoadingAnimation()
-{
-    var message = document.getElementById("message");
-    var greyOut = document.getElementById("grey-out");
-    var loadingImage = document.getElementById("loading-image");
-
-    message.hidden = false;
-    greyOut.hidden = false;
-    loadingImage.hidden = false;
-
-}
-
-function showMessage(messageText,toShow = true)
-{
-    if(!message){
-        message = document.getElementById("message");
-    }
-
-    message.innerText = messageText;
-    message.hidden = !toShow;
+        /* --- Redirect to Dashboard ---*/
+        showMessage("Redirecting to dashboard", true);
+        let sessionResponse = await callServer("backend/createSession.php",json);
+        showLoadingScreen();
+        console.log("Session response: "+sessionResponse);
+        window.location.href = '../dashboard/dashboard.php'
 }
 
 function getAccountHolderSQL(data)

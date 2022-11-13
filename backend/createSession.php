@@ -10,6 +10,7 @@ $_SESSION["username"] = $request["username"];
 $_SESSION["firstName"] = $request["firstName"];
 $_SESSION["lastName"] = $request["lastName"];
 $_SESSION["emailAddress"] = $request["emailAddress"];
+$_SESSION["type"] = $request["type"];
 $_SESSION["legalEntityId"] = $request["legalEntityId"];
 $_SESSION["accountHolderId"] = $request["accountHolderId"];
 $_SESSION["balanceAccountId"] = $request["balanceAccountId"];
