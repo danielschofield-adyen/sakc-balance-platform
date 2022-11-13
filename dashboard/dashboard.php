@@ -38,9 +38,10 @@ session_start()
     <script src="../frontend/template.js"></script>
     <script src="../frontend/transferBalance.js"></script>
     <script src="../frontend/logout.js"></script>
+    <script src="../frontend/dashboardWidgets.js"></script>
     <script>
     window.onload = async function() {
-    callGetBalance();
+    callDashboardWidgets();
   };
     </script>
 
@@ -56,7 +57,7 @@ session_start()
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon">
                     <img class="sidebar-icon" src="../../login/images/food-panda-logo.png">
                 </div>
@@ -68,7 +69,7 @@ session_start()
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/dashboard/dashboard.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -83,45 +84,45 @@ session_start()
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                <a class="nav-link" href="/dashboard/index.php">
+                    <i class="fas fa-fw fa-shopping-bag"></i>
                     <span>Shopping</span>
                 </a>
-                
+
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
+                <a class="nav-link" href="/index.php">
+                    <i class="fas fa-fw fa-sign-in-alt"></i>
                     <span>Sign Up</span>
                 </a>
-                
+
             </li>
 
-            
-            
 
-            
-            
 
-            
-            
 
-            
-            
 
-            
-            
 
-            
+
+
+
+
+
+
+
+
+
+
+
             <hr class="sidebar-divider d-none d-md-block">
 
-            
-            
 
-            
-            
+
+
+
+
 
         </ul>
         <!-- End of Sidebar -->
@@ -142,20 +143,20 @@ session_start()
 
                     <!-- Topbar Search -->
                     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        
+
                     </form>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        
-                        
 
-                        
-                        
 
-                        
-                        
+
+
+
+
+
+
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -167,10 +168,10 @@ session_start()
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                
-                                
-                                
-                                
+
+
+
+
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
@@ -189,7 +190,7 @@ session_start()
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        
+
                     </div>
 
                     <!-- Content Row -->
@@ -202,12 +203,12 @@ session_start()
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Wallet Balance</div>
+                                                Wallet</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800" id="getBalance" hidden="true">Dummy tex</div>
 
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -221,8 +222,8 @@ session_start()
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Stored card</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">***********1111</div>
+                                                Stored Card</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="getStoredCardDetails">4111 11** **** 1111</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -266,11 +267,11 @@ session_start()
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                                Next Payout</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">16th November 2022</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -364,6 +365,14 @@ session_start()
                         </div>
                     </div>
 
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Content Column -->
+
+
+
+                    </div>
 
                 </div>
                 <!-- /.container-fluid -->
