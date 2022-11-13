@@ -19,7 +19,7 @@ async function callDropin(amountValue, splitOne, splitTwo)
         },
         onSubmit: (state) => { //Assign event handler when pay button is clicked
             if (state.isValid) {
-                callPayments(state, splitOne, splitTwo);
+                callPayments(amountValue,state, splitOne, splitTwo);
             }
         },
         onAdditionalDetails: (state) => { //Assign event handler when additional details are required

@@ -1,6 +1,7 @@
 <?php session_start();
 $img_Url= "https://images.deliveryhero.io/image/fd-sg/LH/".$_GET['code']."-listing.jpg?width=600&amp;height=600&quot";
 $item_price= $_GET['price'];
+
 ?>
 
 <html lang="en"><head>
@@ -236,7 +237,7 @@ $item_price= $_GET['price'];
                     </button>
 
                     <div class="form-outline">
-                      <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control" onchange="updateCost(this.value)"/>
+                      <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control" />
                       <label class="form-label" for="form1">Quantity</label>
                     </div>
 
@@ -249,7 +250,8 @@ $item_price= $_GET['price'];
 
                   <!-- Price -->
                   <p class="text-start text-md-center">
-                    <span id="totalCartCost">  <strong><?php echo "$"."$item_price".".00";?></strong> </span>
+                    <span id="totalCartCost"><strong><?php echo "$"."$item_price".".00";?></strong> </span>
+
 
                   </p>
                   <!-- Price -->
@@ -278,7 +280,7 @@ $item_price= $_GET['price'];
           </div>
           <div class="card mb-4">
             <div class="card-body">
-              <p><strong>Wallet+Card</strong></p>
+              <p><strong>Wallet+card</strong></p>
               <p class="mb-0"></p>
             </div>
           </div>
@@ -316,7 +318,7 @@ $item_price= $_GET['price'];
                       <p class="mb-0">(including VAT)</p>
                     </strong>
                   </div>
-                  <span id="totalCartCost"><strong>dummy</strong></span>
+                  <span><strong><?php echo "$"."$item_price".".00";?></strong></span>
                 </li>
               </ul>
 
