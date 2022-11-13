@@ -62,7 +62,7 @@ async function callPayments(state, splitOne, splitTwo)
                      "value":Math.round((totalCartCost*100)*splitOne)
                  },
                  "type":"BalanceAccount",
-                 "account":"BA32272223222C5GWSL23DN8Z",
+                 "account":"BA32272223222C5GWV9F6263K",
                  "reference":"Top Up"
               },
               {

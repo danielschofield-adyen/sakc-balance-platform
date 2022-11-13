@@ -42,10 +42,11 @@ $item_price= $_GET['price'];
     <script src="../frontend/template.js"></script>
       <script src="../frontend/topUpWallet.js"></script>
     <script src="../frontend/transferBalance.js"></script>
+    <script src="../frontend/displayResponse.js"></script>
     <script>
     window.onload = async function() {
     callGetBalance();
-    callDropin(<?php echo "$item_price";?>);
+    handleShopperRedirect();
   };
     </script>
 
@@ -72,7 +73,7 @@ $item_price= $_GET['price'];
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="dashboard.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
@@ -87,7 +88,7 @@ $item_price= $_GET['price'];
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-shopping-bag"></i>
                     <span>Shopping</span>
@@ -264,33 +265,124 @@ $item_price= $_GET['price'];
               <!-- Single item -->
             </div>
           </div>
-          <div class="card mb-4">
-            <div class="card-body">
-              <p><strong>cards</strong></p>
-              <p class="mb-0"></p>
-            </div>
-          </div>
-          <div class="card mb-4">
-            <div class="card-body">
-              <p><strong>top-up</strong></p>
-              <p class="mb-0"></p>
-            </div>
-          </div>
-          <div class="card mb-4">
-            <div class="card-body">
-              <p><strong>Wallet+Card</strong></p>
-              <p class="mb-0"></p>
-            </div>
-          </div>
-          <div class="card mb-4 mb-lg-0">
-            <div class="card-body">
-              <p><strong>Payment</strong></p>
-            !---Test---!
-               <div id="dropin-container"></div>
 
-            !---END----!
+
+          
+            <!-- Payment Options Container -->
+            <div class="card mb-4">
+              <div class="card-header py-3">
+                <h5 class="mb-0">Payment Options</h5>
+              </div>
+              <div class="card-body">
+                <!-- Single item -->
+                <div class="row">
+              <!-- Earnings (Monthly) Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                  <button class="card border-left-primary shadow h-100 py-2" onclick="callWallet()">
+                      <div class="card-body">
+                          <div class="row no-gutters align-items-center">
+                              <div class="col mr-2">
+                                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Wallet</div>
+                              </div>
+                              <div class="col-auto">
+                                  <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                              </div>
+                          </div>
+                      </div>
+                  </button>
+              </div>
+
+              <!-- Earnings (Monthly) Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                  <button class="card border-left-success shadow h-100 py-2" onclick="callTopUpWallet()">
+                      <div class="card-body">
+                          <div class="row no-gutters align-items-center">
+                              <div class="col mr-2">
+                                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Top Up Wallet</div>
+                              </div>
+                              <div class="col-auto">
+                                  <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                              </div>
+                          </div>
+                      </div>
+                  </button>
+              </div>
+
+              <!-- Earnings (Monthly) Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                  <button class="card border-left-info shadow h-100 py-2" onclick="callDropin(totalCartCost)">
+                      <div class="card-body">
+                          <div class="row no-gutters align-items-center">
+                              <div class="col mr-2">
+                                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Card</div>
+                              </div>
+                              <div class="col-auto">
+                                  <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                              </div>
+                          </div>
+                      </div>
+                  </button>
+              </div>
+
+              <!-- Pending Requests Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                  <button class="card border-left-warning shadow h-100 py-2" onclick="callSplit()">
+                      <div class="card-body">
+                          <div class="row no-gutters align-items-center">
+                              <div class="col mr-2">
+                                  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Wallet + Card</div>
+                              </div>
+                              <div class="col-auto">
+                                  <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                              </div>
+                          </div>
+                      </div>
+                  </button>
+              </div>
             </div>
+            <hr class="my-4" />
+          <br>
+          <div id="wallet-container">
+            <div id="otherPayments"></div>
+            <div id="confirmTransfer"></div>
+            <button id="btn-transfer" hidden="true" style="width:150px;height:50px;font-size:32;" onclick="callTransferBalance(totalCartCost)">Transfer</button>
+            <div id="transferResponse"></div>
           </div>
+          <div id="split-container">
+            <div id="splitWallet" hidden="true">
+                <label for="splitWalletAmountInput">Wallet Amount to use: </label>
+                <input type="number" min="0" id="splitWalletAmountInput" name="splitWalletAmountInput" value="0" style="width: 4em">
+            </div>
+            <br>
+            <div id="splitWarning"></div>
+            <button id="btn-split" hidden="true" style="width:150px;height:50px;font-size:32;" onclick="callSplitPay()">Pay</button>
+          </div>
+          <div id="topup-container">
+            <div id="topUpAmount-container" hidden="true">
+                <label for="topUpAmountInput">Top Up Amount: </label>
+                <input type="number" min="0" id="topUpAmountInput" name="topUpAmountInput" value="0" style="width: 4em">
+            </div>
+            <br>
+            <button id="btn-topup" hidden="true" style="width:150px;height:50px;font-size:32;" onclick="callTopUpConfirmed()">Top Up</button>
+          </div>
+          <br>
+          <div id="dropin-container"></div>
+        </div>
+        
+      </div>
+          
+
+
+
+
+
+
+          
+
+
+
+
+ 
         </div>
         <div class="col-md-4">
           <div class="card mb-4">
