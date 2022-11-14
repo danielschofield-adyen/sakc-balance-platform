@@ -52,8 +52,7 @@ $item_Name=urldecode($_GET['itemName']);
     <script src="../frontend/dashboardWidgets.js"></script>
     <script>
     window.onload = async function() {
-    callDashboardWidgets();
-    handleShopperRedirect();
+      callDashboardWidgets();
     updateCost();
   };
     </script>
