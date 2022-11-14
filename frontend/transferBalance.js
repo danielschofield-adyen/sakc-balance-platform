@@ -1,6 +1,6 @@
 async function callTransferBalance(amountValue)
 {
-    const url = "backend/transferBalance.php";
+    const url = "../backend/transferBalance.php";
     const data = {
     "amount": {
         "currency": "SGD",
@@ -20,5 +20,9 @@ async function callTransferBalance(amountValue)
     let response = await callServer(url,data);
 
     //do logic with response
-    displayResponse(response);
+    // displayResponse(response);
+    console.log(response.status)
+    console.log(response.reason)
+
+    document.getElementById("transferResponse").innerHTML = '<br><p>Status: ' + response.status + '<br>Reason: ' + response.reason + '</p>';
 }

@@ -9,8 +9,8 @@ async function callDashboardWidgets()
   getBalance.innerText = "SGD "+getBalanceResponse['balances'][0]['available'];
   getBalance.hidden = false;
 
-  var getBalanceReserved = document.getElementById("getBalanceReserved");
-  getBalanceReserved.innerText = "SGD "+response['balances'][0]['reserved'];
-  getBalanceReserved.hidden = false;
+  // var getBalanceReserved = document.getElementById("getBalanceReserved");
+  // getBalanceReserved.innerText = "SGD "+response['balances'][0]['reserved'];
+  // getBalanceReserved.hidden = false;
 
 }
