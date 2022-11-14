@@ -54,8 +54,8 @@ async function checkUsernameDb(data)
     {
         let json = {
             "username":"Shopper",
-            "firstName":"",
-            "lastName":"",
+            "firstName":"Michael",
+            "lastName":"Scott",
             "emailAddress":"",
             "legalEntityId":"LE322JV223222F5GWT62L3J8C",
             "type":"individual",
