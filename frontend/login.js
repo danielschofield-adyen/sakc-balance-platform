@@ -23,12 +23,13 @@ async function checkUsernameDb(data)
             "firstName":"FoodPanda",
             "lastName":"",
             "emailAddress":"",
-            "legalEntityId":"NEED LEGAL ENTITY OF FOODPANDA",
-            "type":"business",
-            "accountHolderId":"NEED ACCOUNT HOLDER OF FOODPANDA",
-            "balanceAccountId":"NEED BALANCE ACCOUNT OF FOODPANDA"
+            "legalEntityId":"LE322JV223222F5GWS9B72X24",
+            "type":"organisation",
+            "accountHolderId":"AH00000000000000000000001",
+            "balanceAccountId":"BA32272223222C5GWV9F6263K"
         }
 
+        //            "accountHolderId":"AH32272223222C5GWS9K6DN3W",
         redirectToDashboard(json);
         return;
     }
@@ -47,6 +48,14 @@ async function checkUsernameDb(data)
         return;
     }
 
+    var userResponseJSON = JSON.parse(selectUserResponse);
+    if(data["password"] != userResponseJSON["password"])
+    {
+        showErrorMessage("Incorrect Password. Please try again");
+        showLoadingScreen();
+        return;
+    }
+
     showLoadingScreen("User found! Logging in...", true);
 
     /* --- Select Account Holder from DB --- */
@@ -61,7 +70,7 @@ async function checkUsernameDb(data)
     if(!balanceAccountResponse)
         return false;
 
-    var userResponseJSON = JSON.parse(selectUserResponse);
+
     var accountHolderResponseJSON = JSON.parse(accountHolderResponse);
     var balanceAccountResponseJSON = JSON.parse(balanceAccountResponse);
 
@@ -85,7 +94,7 @@ async function redirectToDashboard(json)
 {
         /* --- Redirect to Dashboard ---*/
         showMessage("Redirecting to dashboard", true);
-        let sessionResponse = await callServer("backend/createSession.php",json);
+        let sessionResponse = await callServer("../backend/createSession.php",json);
         showLoadingScreen();
         console.log("Session response: "+sessionResponse);
         window.location.href = '../dashboard/dashboard.php'
