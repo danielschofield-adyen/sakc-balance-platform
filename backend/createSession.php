@@ -7,6 +7,7 @@ if (file_get_contents('php://input') != '') {
 session_start();
 
 $_SESSION["username"] = $request["username"];
+$_SESSION["postal"] = "478929";
 $_SESSION["firstName"] = $request["firstName"];
 $_SESSION["lastName"] = $request["lastName"];
 $_SESSION["emailAddress"] = $request["emailAddress"];
