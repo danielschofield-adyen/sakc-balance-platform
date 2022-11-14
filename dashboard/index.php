@@ -457,9 +457,12 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+<<<<<<< HEAD
 
     <!-- Page level plugins -->
     <script src="vendor/chart.js/Chart.min.js"></script>
 
 
+=======
+>>>>>>> 40ea377eeaef631341833582656101202a1569db
 </body></html>
