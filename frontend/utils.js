@@ -1,6 +1,6 @@
 // Generic POST Helper
 const httpPost = (endpoint, data) =>
-    fetch(`backend/${endpoint}.php`, {
+    fetch(`../backend/${endpoint}.php`, {
         method: 'POST',
         headers: {
             Accept: 'application/json, text/plain, */*',
@@ -29,7 +29,7 @@ async function callServer(url, data) {
     catch(err) {
         if(err instanceof SyntaxError)
             console.log("Empty or No Response from DB");
-        else        
+        else
             console.log("Error: ",err);
         return false;
     }
@@ -55,12 +55,11 @@ async function callServer(url, data) {
     catch(err) {
         if(err instanceof SyntaxError)
             console.log("Empty or No Response from DB");
-        else        
+        else
             console.log("Error: ",err);
         return false;
     }
 }
-
 
 function showErrorMessage (messageText, toShow = true)
 {
@@ -89,5 +88,3 @@ function showLoadingScreen(messageText = "", toShow = false)
 
     showMessage(messageText, toShow);
 }
-
-

@@ -14,7 +14,7 @@
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
      <link href="css/shoppingCart.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.css" rel="stylesheet">
     <script src="../frontend/utils.js"></script>
@@ -182,7 +182,7 @@
                         <h1 class="h3 mb-0 text-gray-800">Shopping</h1>
 
                     </div>
-            
+
 
 
 
@@ -199,12 +199,12 @@
                                    <!-- Product name-->
                                    <h5 class="fw-bolder">Encik Tan (Bedok Mall)</h5>
                                    <!-- Product price-->
-
+                                   $50.00
                                </div>
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=y9rp">Buy Now</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=y9rp&price=50&itemName=Encik Tan (Bedok Mall)">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
@@ -216,24 +216,25 @@
                            <img class="card-img-top" src="https://images.deliveryhero.io/image/fd-sg/LH/s9wp-listing.jpg?width=450&amp;height=450&quot" alt="..." />
                            <!-- Product details-->
                            <div class="card-body p-4">
-                               <div class="text-center">
-                                   <!-- Product name-->
-                                   <h5 class="fw-bolder">Fortune Food (Gourmet East Kitchen)</h5>
-                                   <!-- Product reviews-->
-                                   <div class="d-flex justify-content-center small text-warning mb-2">
-                                       <div class="bi-star-fill"></div>
-                                       <div class="bi-star-fill"></div>
-                                       <div class="bi-star-fill"></div>
-                                       <div class="bi-star-fill"></div>
-                                       <div class="bi-star-fill"></div>
-                                   </div>
-
-
-                               </div>
+                           <div class="text-center">
+                                     <!-- Product name-->
+                                     <h5 class="fw-bolder">Fortune Food (Gourmet East Kitchen)</h5>
+                                     <!-- Product reviews-->
+                                     <div class="d-flex justify-content-center small text-warning mb-2">
+                                         <div class="bi-star-fill"></div>
+                                         <div class="bi-star-fill"></div>
+                                         <div class="bi-star-fill"></div>
+                                         <div class="bi-star-fill"></div>
+                                         <div class="bi-star-fill"></div>
+                                     </div>
+                                     <!-- Product price-->
+                                     <span class="text-muted text-decoration-line-through">$45.00</span>
+                                     $40.00
+                                 </div>
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=s9wp">Buy Now</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=s9wp&price=40&itemName=Fortune Food (Gourmet East Kitchen)">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
@@ -248,12 +249,14 @@
                                <div class="text-center">
                                    <!-- Product name-->
                                    <h5 class="fw-bolder">A-One Signature (Tampines One)</h5>
+                                   <span class="text-muted text-decoration-line-through">$20.00</span>
+                                  $18.00
 
                                </div>
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=w5pf">Buy Now</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=w5pf&price=18&itemName=A-One Signature (Tampines One)">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
@@ -275,11 +278,13 @@
                                        <div class="bi-star-fill"></div>
                                    </div>
 
+                                  $38.00
+
                                </div>
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=x8fe">Buy Now</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=x8fe&price=38&Itemname=O'Braim Express">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
@@ -294,12 +299,14 @@
                                <div class="text-center">
                                    <!-- Product name-->
                                    <h5 class="fw-bolder">Thunder tea</h5>
+                                   <span class="text-muted text-decoration-line-through">$20.00</span>
+                                  $18.00
 
                                </div>
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=n8kn">Buy Now</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=n8kn&price=18&itemName=Thunder tea">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
@@ -313,12 +320,12 @@
                                    <!-- Product name-->
                                    <h5 class="fw-bolder">Yam Mee Teochew Fishball Noodles (Bedok)</h5>
                                    <!-- Product price-->
-
+                                   $40.00
                                </div>
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=w9xe">Buy Now</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=w9xe&price=40&itemName=Yam Mee Teochew Fishball Noodles (Bedok)">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
@@ -342,12 +349,14 @@
                                        <div class="bi-star-fill"></div>
                                    </div>
                                    <!-- Product price-->
+                                   <span class="text-muted text-decoration-line-through">$30.00</span>
+                                  $28.00
 
                                </div>
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=y6wd">Buy Now</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=y6wd&price=28&itemName=Bubble tea">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
@@ -368,12 +377,13 @@
                                        <div class="bi-star-fill"></div>
                                        <div class="bi-star-fill"></div>
                                    </div>
+                                   $50.00
 
                                </div>
                            </div>
                            <!-- Product actions-->
                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=y8bv">Buy Now</a></div>
+                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="checkout.php?code=y8bv&price=50&itemName=The Alley (Tampines Central)">Buy Now</a></div>
                            </div>
                        </div>
                    </div>
@@ -438,6 +448,7 @@
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -451,7 +462,6 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
-
 
 
 

@@ -1,9 +1,15 @@
 <?php session_start();
 $img_Url= "https://images.deliveryhero.io/image/fd-sg/LH/".$_GET['code']."-listing.jpg?width=600&amp;height=600&quot";
+$item_price= $_GET['price'];
+$item_Name=urldecode($_GET['itemName']);
+
 ?>
 
 <html lang="en"><head>
-
+  <script id="adyen-web-script" src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.12.0/adyen.js"
+  crossorigin="anonymous"></script>
+  <link id="adyen-web-stylesheet" rel="stylesheet"
+  href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.12.0/adyen.css"
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,22 +26,29 @@ $img_Url= "https://images.deliveryhero.io/image/fd-sg/LH/".$_GET['code']."-listi
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.css" rel="stylesheet">
     <script src="../frontend/utils.js"></script>
+      <script src="../frontend/shoppingCart.js"></script>
     <script src="../frontend/paymentMethods.js"></script>
     <script src="../frontend/legalEntity.js"></script>
     <script src="../frontend/createAccountHolder.js"></script>
     <script src="../frontend/createBalanceAccounts.js"></script>
     <script src="../frontend/getBalance.js"></script>
     <script src="../frontend/payments.js"></script>
+    <script src="../frontend/wallet.js"></script>
+    <script src="../frontend/split.js"></script>
+      <script src="../frontend/unmountPayment.js"></script>
     <script src="../frontend/handleServerResponse.js"></script>
     <script src="../frontend/handleShopperRedirect.js"></script>
     <script src="../frontend/handleSubmission.js"></script>
     <script src="../frontend/paymentsDetails.js"></script>
     <script src="../frontend/dropin.js"></script>
     <script src="../frontend/template.js"></script>
+      <script src="../frontend/topUpWallet.js"></script>
     <script src="../frontend/transferBalance.js"></script>
+    <script src="../frontend/displayResponse.js"></script>
     <script>
     window.onload = async function() {
     callGetBalance();
+    handleShopperRedirect();
   };
     </script>
 
@@ -62,8 +75,8 @@ $img_Url= "https://images.deliveryhero.io/image/fd-sg/LH/".$_GET['code']."-listi
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="/dashboard/dashboard.php">
+            <li class="nav-item">
+                <a class="nav-link" href="dashboard.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -77,8 +90,8 @@ $img_Url= "https://images.deliveryhero.io/image/fd-sg/LH/".$_GET['code']."-listi
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link" href="/dashboard/index.php">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-shopping-bag"></i>
                     <span>Shopping</span>
                 </a>
@@ -87,7 +100,7 @@ $img_Url= "https://images.deliveryhero.io/image/fd-sg/LH/".$_GET['code']."-listi
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="/index.php">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-sign-in-alt"></i>
                     <span>Sign Up</span>
                 </a>
@@ -178,113 +191,240 @@ $img_Url= "https://images.deliveryhero.io/image/fd-sg/LH/".$_GET['code']."-listi
             <!-- End of Topbar -->
 
             <!-- Section-->
-            <section class="h-100 h-custom">
-        <div class="container py-5 h-100">
-          <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-12">
-              <div class="card card-registration card-registration-2" style="border-radius: 15px;">
-                <div class="card-body p-0">
-                  <div class="row g-0">
-                    <div class="col-lg-8">
-                      <div class="p-5">
-                        <div class="d-flex justify-content-between align-items-center mb-5">
-                          <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
-                          <h6 class="mb-0 text-muted">1 items</h6>
-                        </div>
-
-                        <hr class="my-4">
-
-                        <div class="row gx-4 gx-lg-5 align-items-center"">
-                          <div class="col-md-6 col-lg-2 col-xl-2">
-                            <img src=<?php echo "$img_Url";?>
-
-                              class="img-fluid rounded-3" alt="Cotton T-shirt">
-                          </div>
-                          <div class="col-md-3 col-lg-3 col-xl-3">
-                            <h6 class="text-muted">Shirt</h6>
-                            <h6 class="text-black mb-0">Cotton T-shirt</h6>
-                          </div>
-                          <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                            <button class="btn btn-link px-2"
-                              onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                              <i class="fas fa-minus"></i>
-                            </button>
-
-                            <input id="form1" min="0" name="quantity" value="1" type="number"
-                              class="form-control form-control-sm" />
-
-                            <button class="btn btn-link px-2"
-                              onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                              <i class="fas fa-plus"></i>
-                            </button>
-                          </div>
-                          <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                            <h6 class="mb-0">€ 44.00</h6>
-                          </div>
-                          <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                            <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
-                          </div>
-                        </div>
-
-                        <hr class="my-4">
-
-                        <hr class="my-4">
-
-                        <div class="pt-5">
-                          <h6 class="mb-0"><a href="#!" class="text-body"><i
-                                class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-4 bg-grey">
-                      <div class="p-5">
-                        <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
-                        <hr class="my-4">
-
-                        <div class="d-flex justify-content-between mb-4">
-                          <h5 class="text-uppercase">items 3</h5>
-                          <h5>€ 132.00</h5>
-                        </div>
-
-                        <h5 class="text-uppercase mb-3">Shipping</h5>
-
-                        <div class="mb-4 pb-2">
-                          <select class="select">
-                            <option value="1">Standard-Delivery- €5.00</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            <option value="4">Four</option>
-                          </select>
-                        </div>
-
-                        <h5 class="text-uppercase mb-3">Give code</h5>
-
-                        <div class="mb-5">
-                          <div class="form-outline">
-                            <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
-                            <label class="form-label" for="form3Examplea2">Enter your code</label>
-                          </div>
-                        </div>
-
-                        <hr class="my-4">
-
-                        <div class="d-flex justify-content-between mb-5">
-                          <h5 class="text-uppercase">Total price</h5>
-                          <h5>€ 137.00</h5>
-                        </div>
-
-                        <button type="button" class="btn btn-dark btn-block btn-lg"
-                          data-mdb-ripple-color="dark">Register</button>
-
-                      </div>
-                    </div>
+            <section class="h-100 gradient-custom">
+    <div class="container py-5">
+      <div class="row d-flex justify-content-center my-4">
+        <div class="col-md-8">
+          <div class="card mb-4">
+            <div class="card-header py-3">
+              <h5 class="mb-0">Cart items</h5>
+            </div>
+            <div class="card-body">
+              <!-- Single item -->
+              <div class="row">
+                <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                  <!-- Image -->
+                  <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                   <img src=<?php echo "$img_Url";?>
+                      class="w-100" alt="Blue Jeans Jacket" />
+                    <a href="#!">
+                      <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                    </a>
                   </div>
+                  <!-- Image -->
+                </div>
+
+                <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                  <!-- Data -->
+                  <p></p>
+                  <p><strong><?php echo "$item_Name";?></strong></p>
+                  <p></p>
+                  <button type="button" hidden=true class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
+                    title="Remove item">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                  <button type="button" hidden=true class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip"
+                    title="Move to the wish list">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                  <!-- Data -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                  <!-- Quantity -->
+                  <div class="d-flex mb-4" style="max-width: 300px">
+                    <button class="btn btn-primary px-3 me-2"
+                      onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                      <i class="fas fa-minus"></i>
+                    </button>
+
+                    <div class="form-outline">
+                      <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control" />
+                      <label class="form-label" for="form1">Quantity</label>
+                    </div>
+
+                    <button class="btn btn-primary px-3 ms-2"
+                      onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  </div>
+                  <!-- Quantity -->
+
+                  <!-- Price -->
+                  <p class="text-start text-md-center">
+                    <span id="totalCartCost"><strong><?php echo "$"."$item_price".".00";?></strong> </span>
+
+
+                  </p>
+                  <!-- Price -->
                 </div>
               </div>
+              <!-- Single item -->
+
+              <hr class="my-4" />
+
+              <!-- Single item -->
+
+              <!-- Single item -->
+            </div>
+          </div>
+
+
+          
+            <!-- Payment Options Container -->
+            <div class="card mb-4">
+              <div class="card-header py-3">
+                <h5 class="mb-0">Payment Options</h5>
+              </div>
+              <div class="card-body">
+                <!-- Single item -->
+                <div class="row">
+              <!-- Earnings (Monthly) Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                  <button class="card border-left-primary shadow h-100 py-2" onclick="callWallet()">
+                      <div class="card-body">
+                          <div class="row no-gutters align-items-center">
+                              <div class="col mr-2">
+                                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Wallet</div>
+                              </div>
+                              <div class="col-auto">
+                                  <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                              </div>
+                          </div>
+                      </div>
+                  </button>
+              </div>
+
+              <!-- Earnings (Monthly) Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                  <button class="card border-left-success shadow h-100 py-2" onclick="callTopUpWallet()">
+                      <div class="card-body">
+                          <div class="row no-gutters align-items-center">
+                              <div class="col mr-2">
+                                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Top Up Wallet</div>
+                              </div>
+                              <div class="col-auto">
+                                  <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                              </div>
+                          </div>
+                      </div>
+                  </button>
+              </div>
+
+              <!-- Earnings (Monthly) Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                  <button class="card border-left-info shadow h-100 py-2" onclick="callDropin(totalCartCost)">
+                      <div class="card-body">
+                          <div class="row no-gutters align-items-center">
+                              <div class="col mr-2">
+                                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Card</div>
+                              </div>
+                              <div class="col-auto">
+                                  <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                              </div>
+                          </div>
+                      </div>
+                  </button>
+              </div>
+
+              <!-- Pending Requests Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                  <button class="card border-left-warning shadow h-100 py-2" onclick="callSplit()">
+                      <div class="card-body">
+                          <div class="row no-gutters align-items-center">
+                              <div class="col mr-2">
+                                  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Wallet + Card</div>
+                              </div>
+                              <div class="col-auto">
+                                  <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                              </div>
+                          </div>
+                      </div>
+                  </button>
+              </div>
+            </div>
+            <hr class="my-4" />
+          <br>
+          <div id="wallet-container">
+            <div id="otherPayments"></div>
+            <div id="confirmTransfer"></div>
+            <button id="btn-transfer" hidden="true" style="width:150px;height:50px;font-size:32;" onclick="callTransferBalance(totalCartCost)">Transfer</button>
+            <div id="transferResponse"></div>
+          </div>
+          <div id="split-container">
+            <div id="splitWallet" hidden="true">
+                <label for="splitWalletAmountInput">Wallet Amount to use: </label>
+                <input type="number" min="0" id="splitWalletAmountInput" name="splitWalletAmountInput" value="0" style="width: 4em">
+            </div>
+            <br>
+            <div id="splitWarning"></div>
+            <button id="btn-split" hidden="true" style="width:150px;height:50px;font-size:32;" onclick="callSplitPay()">Pay</button>
+          </div>
+          <div id="topup-container">
+            <div id="topUpAmount-container" hidden="true">
+                <label for="topUpAmountInput">Top Up Amount: </label>
+                <input type="number" min="0" id="topUpAmountInput" name="topUpAmountInput" value="0" style="width: 4em">
+            </div>
+            <br>
+            <button id="btn-topup" hidden="true" style="width:150px;height:50px;font-size:32;" onclick="callTopUpConfirmed()">Top Up</button>
+          </div>
+          <br>
+          <div id="dropin-container"></div>
+        </div>
+        
+      </div>
+          
+
+
+
+
+
+
+          
+
+
+
+
+ 
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-header py-3">
+              <h5 class="mb-0">Summary</h5>
+            </div>
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                  Products
+                  <span><?php echo "$"."$item_price".".00";?></span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                  Shipping
+                  <span>Free</span>
+                </li>
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                  <div>
+                    <strong>Total amount</strong>
+                    <strong>
+                      <p class="mb-0">(including VAT)</p>
+                    </strong>
+                  </div>
+                  <span><strong><?php echo "$"."$item_price".".00";?></strong></span>
+                </li>
+              </ul>
+
+              <button type="button" hidden="true" class="btn btn-primary btn-lg btn-block">
+                Go to checkout
+              </button>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
+
 
 
 
@@ -343,6 +483,7 @@ $img_Url= "https://images.deliveryhero.io/image/fd-sg/LH/".$_GET['code']."-listi
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>

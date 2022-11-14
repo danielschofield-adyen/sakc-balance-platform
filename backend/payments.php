@@ -1,4 +1,5 @@
 <?php
+session_start();
 /**
  * Adyen Checkout Example (https://www.adyen.com/)
  * Copyright (c) 2019 Adyen BV (https://www.adyen.com/)
@@ -7,7 +8,7 @@
 
 /**
  * Use this as a template to make API calls using php
- * 
+ *
  */
 
  //Get data from frontend
@@ -23,7 +24,7 @@ $merchantAccount = $_ENV["MERCHANT_ACCOUNT"]; //not using this
 $url = "https://checkout-test.adyen.com/".$_ENV["API_VERSION"]."/payments";//call endpoint here
 
 //Add any additional data not sent in the request
-$data = [ "merchantAccount"=>$merchantAccount ];
+$data = [ "merchantAccount"=>$merchantAccount, "shopperReference" => $_SESSION["username"]];
 
 // Convert data to JSON
 $json_data = json_encode(array_merge($data, $request));
