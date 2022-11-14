@@ -37,6 +37,7 @@ $Login_Type=$_SESSION["type"]
     <script src="../frontend/handleShopperRedirect.js"></script>
     <script src="../frontend/handleSubmission.js"></script>
     <script src="../frontend/paymentsDetails.js"></script>
+    <script src="../frontend/getTransactionList.js"></script>
     <script src="../frontend/dropin.js"></script>
     <script src="../frontend/template.js"></script>
     <script src="../frontend/transferBalance.js"></script>
@@ -265,7 +266,8 @@ $Login_Type=$_SESSION["type"]
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        <a href="transactionList.php">  <i class="fas fa-clipboard-list fa-2x text-gray-300"></i></a>
+
                                         </div>
                                     </div>
                                 </div>

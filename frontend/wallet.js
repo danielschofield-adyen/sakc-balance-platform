@@ -6,12 +6,12 @@ async function callWallet()
     console.log("Loading Wallet")
 
     checkBalanceAccountResponse = await callGetBalance() //call Balance Account to check the balance
-    // let availableBalance = parseFloat((checkBalanceAccountResponse.balances[0].available/100).toFixed(2));
+    let availableBalance = parseFloat((checkBalanceAccountResponse.balances[0].available/100).toFixed(2));
 
     // document.getElementById("availableBalance").innerHTML = availableBalance.toFixed(2);
     // document.getElementById("wallet").removeAttribute("hidden");
 
-    let availableBalance = 19000; // GET RID OF THIS **************************
+    // let availableBalance = 19000; // GET RID OF THIS **************************
 
     updateCost();
 

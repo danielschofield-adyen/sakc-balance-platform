@@ -67,7 +67,7 @@ async function callPayments(state, splitOne, splitTwo)
               },
               {
                  "amount":{
-                      "value":Math.round((totalCartCost*100)*splitOne)
+                      "value":Math.round((totalCartCost*100)*splitTwo)
                  },
                  "type":"Commission",
                  "reference":"Top Up"
