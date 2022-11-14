@@ -25,4 +25,7 @@ async function callTransferBalance(amountValue)
     console.log(response.reason)
 
     document.getElementById("transferResponse").innerHTML = '<br><p>Status: ' + response.status + '<br>Reason: ' + response.reason + '</p>';
+
+    callDashboardWidgets();
+    updateCost();
 }
