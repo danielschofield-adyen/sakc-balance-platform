@@ -4,6 +4,9 @@ $item_price= $_GET['price'];
 $item_Name=urldecode($_GET['itemName']);
 
 ?>
+<script type="text/javascript">
+    var itemPrice = "<?php echo $item_price; ?>";
+</script>
 
 <html lang="en"><head>
   <script id="adyen-web-script" src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.12.0/adyen.js"
@@ -26,7 +29,7 @@ $item_Name=urldecode($_GET['itemName']);
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.css" rel="stylesheet">
     <script src="../frontend/utils.js"></script>
-      <script src="../frontend/shoppingCart.js"></script>
+    <script src="../frontend/shoppingCart.js"></script>
     <script src="../frontend/paymentMethods.js"></script>
     <script src="../frontend/legalEntity.js"></script>
     <script src="../frontend/createAccountHolder.js"></script>
@@ -35,20 +38,22 @@ $item_Name=urldecode($_GET['itemName']);
     <script src="../frontend/payments.js"></script>
     <script src="../frontend/wallet.js"></script>
     <script src="../frontend/split.js"></script>
-      <script src="../frontend/unmountPayment.js"></script>
+    <script src="../frontend/unmountPayment.js"></script>
     <script src="../frontend/handleServerResponse.js"></script>
     <script src="../frontend/handleShopperRedirect.js"></script>
     <script src="../frontend/handleSubmission.js"></script>
     <script src="../frontend/paymentsDetails.js"></script>
     <script src="../frontend/dropin.js"></script>
     <script src="../frontend/template.js"></script>
-      <script src="../frontend/topUpWallet.js"></script>
+    <script src="../frontend/topUpWallet.js"></script>
     <script src="../frontend/transferBalance.js"></script>
     <script src="../frontend/displayResponse.js"></script>
+    <script src="../frontend/dashboardWidgets.js"></script>
     <script>
     window.onload = async function() {
-    callGetBalance();
+    callDashboardWidgets();
     handleShopperRedirect();
+    updateCost();
   };
     </script>
 
@@ -234,17 +239,17 @@ $item_Name=urldecode($_GET['itemName']);
                   <!-- Quantity -->
                   <div class="d-flex mb-4" style="max-width: 300px">
                     <button class="btn btn-primary px-3 me-2"
-                      onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                      onclick="this.parentNode.querySelector('input[type=number]').stepDown(), updateCost()">
                       <i class="fas fa-minus"></i>
                     </button>
 
                     <div class="form-outline">
-                      <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control" />
-                      <label class="form-label" for="form1">Quantity</label>
+                      <input id="qtyInput" name="qtyInput" value="1" class="form-control" type="number" min="0" step="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57" title="Numbers only" onchange="updateCost()"/>
+                      <label class="qtyInput" for="qtyInput">Quantity</label>
                     </div>
 
                     <button class="btn btn-primary px-3 ms-2"
-                      onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                      onclick="this.parentNode.querySelector('input[type=number]').stepUp(), updateCost()">
                       <i class="fas fa-plus"></i>
                     </button>
                   </div>
@@ -252,7 +257,7 @@ $item_Name=urldecode($_GET['itemName']);
 
                   <!-- Price -->
                   <p class="text-start text-md-center">
-                    <span id="totalCartCost"><strong><?php echo "$"."$item_price".".00";?></strong> </span>
+                    <span id="itemPrice"><strong><?php echo "$"."$item_price".".00 each";?></strong> </span>
 
 
                   </p>
@@ -286,6 +291,7 @@ $item_Name=urldecode($_GET['itemName']);
                           <div class="row no-gutters align-items-center">
                               <div class="col mr-2">
                                   <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Wallet</div>
+                                  <div class="h7 mb-0 font-weight-bold text-gray-800" id="getBalance" hidden="true">Dummy tex</div>
                               </div>
                               <div class="col-auto">
                                   <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -317,7 +323,7 @@ $item_Name=urldecode($_GET['itemName']);
                       <div class="card-body">
                           <div class="row no-gutters align-items-center">
                               <div class="col mr-2">
-                                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Card</div>
+                                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Card Payment</div>
                               </div>
                               <div class="col-auto">
                                   <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -333,7 +339,7 @@ $item_Name=urldecode($_GET['itemName']);
                       <div class="card-body">
                           <div class="row no-gutters align-items-center">
                               <div class="col mr-2">
-                                  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Wallet + Card</div>
+                                  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Wallet + Card Payment</div>
                               </div>
                               <div class="col-auto">
                                   <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -348,25 +354,25 @@ $item_Name=urldecode($_GET['itemName']);
           <div id="wallet-container">
             <div id="otherPayments"></div>
             <div id="confirmTransfer"></div>
-            <button id="btn-transfer" hidden="true" style="width:150px;height:50px;font-size:32;" onclick="callTransferBalance(totalCartCost)">Transfer</button>
+            <button id="btn-transfer" hidden="true" class="btn btn-primary btn-lg btn-block" onclick="callTransferBalance(totalCartCost)">Transfer</button>
             <div id="transferResponse"></div>
           </div>
           <div id="split-container">
             <div id="splitWallet" hidden="true">
                 <label for="splitWalletAmountInput">Wallet Amount to use: </label>
-                <input type="number" min="0" id="splitWalletAmountInput" name="splitWalletAmountInput" value="0" style="width: 4em">
+                <input type="number" class="form-control" min="0" id="splitWalletAmountInput" name="splitWalletAmountInput" value="0" style="width: 4em">
             </div>
             <br>
             <div id="splitWarning"></div>
-            <button id="btn-split" hidden="true" style="width:150px;height:50px;font-size:32;" onclick="callSplitPay()">Pay</button>
+            <button id="btn-split" hidden="true" class="btn btn-primary btn-lg btn-block" onclick="callSplitPay()">Pay</button>
           </div>
           <div id="topup-container">
             <div id="topUpAmount-container" hidden="true">
                 <label for="topUpAmountInput">Top Up Amount: </label>
-                <input type="number" min="0" id="topUpAmountInput" name="topUpAmountInput" value="0" style="width: 4em">
+                <input type="number" class="form-control" min="0" id="topUpAmountInput" name="topUpAmountInput" value="0" style="width: 4em">
             </div>
             <br>
-            <button id="btn-topup" hidden="true" style="width:150px;height:50px;font-size:32;" onclick="callTopUpConfirmed()">Top Up</button>
+            <button id="btn-topup" hidden="true" class="btn btn-primary btn-lg btn-block" onclick="callTopUpConfirmed()">Top Up</button>
           </div>
           <br>
           <div id="dropin-container"></div>
@@ -411,7 +417,7 @@ $item_Name=urldecode($_GET['itemName']);
                       <p class="mb-0">(including VAT)</p>
                     </strong>
                   </div>
-                  <span><strong><?php echo "$"."$item_price".".00";?></strong></span>
+                  <span><strong id="totalCartCost"></strong></span>
                 </li>
               </ul>
 
@@ -490,13 +496,6 @@ $item_Name=urldecode($_GET['itemName']);
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
 
 
 

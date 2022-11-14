@@ -17,8 +17,8 @@ async function callSplitPay()
     checkBalanceAccountResponse = await callGetBalance() //call Balance Account to check the balance
     let availableBalance = parseFloat((checkBalanceAccountResponse.balances[0].available/100).toFixed(2));
 
-    document.getElementById("availableBalance").innerHTML = availableBalance.toFixed(2);
-    document.getElementById("wallet").removeAttribute("hidden");
+    // document.getElementById("availableBalance").innerHTML = availableBalance.toFixed(2);
+    // document.getElementById("wallet").removeAttribute("hidden");
     
     console.log("Balance Account: ", availableBalance)
     
@@ -26,10 +26,17 @@ async function callSplitPay()
     console.log("Split Wallet Amount: ", splitWalletAmountInput)
 
     if (splitWalletAmountInput <= availableBalance){
-        split = document.getElementById("splitWarning").innerHTML = '<div id="splitWarning"></div>';
-        callTransferBalance(splitWalletAmountInput)
+        if (splitWalletAmountInput != 0){
+            console.log("0 is the splitwallet")
+
+            split = document.getElementById("splitWarning").innerHTML = '<div id="splitWarning"></div>';
+            callTransferBalance(splitWalletAmountInput)
+        }
+
 
         //Maybe add error checks, if successful transfer then continue to dropin, if not stop flow
+        console.log("splitWalletAmountInput ", splitWalletAmountInput)
+        console.log("totalCartCost ", totalCartCost)
 
         totalCartCost = totalCartCost - splitWalletAmountInput;
         callDropin(totalCartCost)
