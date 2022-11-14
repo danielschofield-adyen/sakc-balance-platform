@@ -3617,6 +3617,12 @@ textarea.form-control-lg {
     left: 0;
   }
 
+  table
+{
+    table-layout:fixed;
+    width:100%;
+}
+
   .dropdown-menu-md-end {
     --bs-position: end;
   }

@@ -32,10 +32,36 @@
     <script src="../frontend/template.js"></script>
     <script src="../frontend/transferBalance.js"></script>
     <script src="../frontend/dashboardWidgets.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
     window.onload = async function() {
     callDashboardWidgets();
-    callGetTransactionList();
+  let transactionList = await callGetTransactionList();
+  console.log(transactionList["data"]);
+  var resData = transactionList["data"];
+  var length=transactionList["data"].length;
+
+var table = '<table class="table table-striped"><thead><tr><th>balancePlatform</th><th>id</th><th>accountHolderId</th><th>amount</th><th>currency</th><th>balanceAccountId</th><th>bookingDate</th><th>status</th><th>type</th></tr></thead>';
+
+table += '<tbody>';
+
+for(i=0;i<length;i++){
+  table+='<tr>';
+       table+='<td>'+resData[i]['balancePlatform']+'</td>';
+       table+='<td>'+resData[i]['id']+'</td>';
+       table+='<td>'+resData[i]['accountHolderId']+'</td>';
+       table+='<td>'+resData[i]['amount']['value']+'</td>';
+       table+='<td>'+resData[i]['amount']['currency']+'</td>';
+       table+='<td>'+resData[i]['balanceAccountId']+'</td>';
+       table+='<td>'+resData[i]['bookingDate']+'</td>';
+       table+='<td>'+resData[i]['status']+'</td>';
+       table+='<td>'+resData[i]['type']+'</td>';
+
+    table+='</tr>';
+}
+table+='</table>';
+console.log(table);
+document.getElementById("transactionList").innerHTML = table;
 
   };
     </script>
@@ -154,17 +180,8 @@
                         <!-- Area Chart -->
                         <div class="col-xl-12">
                             <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary text-warning">Details!</h6>
-                                    <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
-                                </div>
                                 <!-- Card Body -->
-                                <div class="card-body">
-                                <p id="transactionDetails">Dummy</p>
-                                </div>
+                                <div class="card-body" id="transactionList" style="overflow-x:auto;">Dummy tex</div>
                             </div>
                         </div>
                     </div>
@@ -230,6 +247,7 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+
 
 
 
