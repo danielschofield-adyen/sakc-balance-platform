@@ -287,7 +287,7 @@ session_start()
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <!-- Add the tables here -->
-                                <?php generateTableFromFile(); ?>
+                                        <?php generateTableFromFile(); ?>
                                 </table>
                             </div>
                         </div>
