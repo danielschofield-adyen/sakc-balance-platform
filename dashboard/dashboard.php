@@ -1,7 +1,8 @@
-<?php 
+<?php
 
 include "../backend/fileReader.php";
-session_start() 
+session_start() ;
+$Login_Type=$_SESSION["type"]
 ?>
 
 <html lang="en"><head>
@@ -41,6 +42,13 @@ session_start()
     <script src="../frontend/dashboardWidgets.js"></script>
     <script>
     window.onload = async function() {
+    if("<?php echo $Login_Type;?>"=='individual'){
+      document.getElementById("contentShopperRow").removeAttribute("hidden");
+    }
+
+    else{  document.getElementById("contentAdminRow").removeAttribute("hidden");}
+
+
     callDashboardWidgets();
   };
     </script>
@@ -49,6 +57,8 @@ session_start()
 @keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}</style></head>
 
 <body id="page-top">
+
+
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -193,8 +203,8 @@ session_start()
 
                     </div>
 
-                    <!-- Content Row -->
-                    <div class="row">
+                    <!-- Content admin Row -->
+                    <div class="row" id="contentAdminRow" hidden="true" >
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
@@ -271,13 +281,110 @@ session_start()
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">16th November 2022</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        <a href="editPayout.php">
+                                        <button type="button" class="btn btn-outline-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+<path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"></path>
+</svg>
+              <span class="visually-hidden"></span>
+
+            </button>
+            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+<!----End of admin -->
+
+<!---contentShopper-->
+<!-- Content admin Row -->
+<div class="row" id="contentShopperRow" hidden="true">
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Wallet</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="getBalance" hidden="true">Dummy tex</div>
+
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            Stored Card</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="getStoredCardDetails">4111 11** **** 1111</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">No of transactions done
+                        </div>
+                        <div class="row no-gutters align-items-center">
+                            <div class="col-auto">
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                            </div>
+                            <div class="col">
+                                <div class="progress progress-sm mr-2">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pending Requests Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            Next Payout</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">16th November 2022</div>
+                    </div>
+                    <div class="col-auto">
+            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!---end of shopper -->
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -287,13 +394,15 @@ session_start()
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <!-- Add the tables here -->
-                                <?php generateTableFromFile(); ?>
+                                        <?php generateTableFromFile(); ?>
                                 </table>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Content Row -->
+
+
+
 
                     <div class="row">
 
