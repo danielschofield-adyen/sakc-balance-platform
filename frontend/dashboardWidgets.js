@@ -4,18 +4,17 @@ async function callDashboardWidgets()
   if(!getBalanceResponse)
     return;
 
-  //console.log(response['balances'][0]['available']);
   var getBalance = document.getElementById("getBalance");
+  if(!getBalance)
+    return;
+  
   getBalance.innerText = "SGD "+(getBalanceResponse['balances'][0]['available']/100.00).toFixed(2);
   getBalance.hidden = false;
 
-  //console.log(response['balances'][0]['available']);
   var getBalanceShopper = document.getElementById("getBalanceShopper");
+  if(!getBalanceShopper)
+    return;
+
   getBalanceShopper.innerText = "SGD "+(getBalanceResponse['balances'][0]['available']/100.00).toFixed(2);
   getBalanceShopper.hidden = false;
-
-  // var getBalanceReserved = document.getElementById("getBalanceReserved");
-  // getBalanceReserved.innerText = "SGD "+response['balances'][0]['reserved'];
-  // getBalanceReserved.hidden = false;
-
 }
