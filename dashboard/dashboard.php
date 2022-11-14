@@ -13,8 +13,6 @@ $Login_Type=$_SESSION["type"]
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="icon" href="../login/images/food-panda-logo.png">
-
     <title>FoodPanda - Dashboard</title>
 
     <!-- Custom fonts for this template-->
@@ -29,6 +27,7 @@ $Login_Type=$_SESSION["type"]
     <script src="../frontend/utils.js"></script>
     <script src="../frontend/paymentMethods.js"></script>
     <script src="../frontend/legalEntity.js"></script>
+    <script src="../frontend/getOnboardingLink.js"></script>
     <script src="../frontend/createAccountHolder.js"></script>
     <script src="../frontend/createBalanceAccounts.js"></script>
     <script src="../frontend/getBalance.js"></script>
@@ -37,7 +36,6 @@ $Login_Type=$_SESSION["type"]
     <script src="../frontend/handleShopperRedirect.js"></script>
     <script src="../frontend/handleSubmission.js"></script>
     <script src="../frontend/paymentsDetails.js"></script>
-    <script src="../frontend/getTransactionList.js"></script>
     <script src="../frontend/dropin.js"></script>
     <script src="../frontend/template.js"></script>
     <script src="../frontend/transferBalance.js"></script>
@@ -106,7 +104,7 @@ $Login_Type=$_SESSION["type"]
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="../qrCode.html">
+                <a class="nav-link" href="/index.php">
                     <i class="fas fa-fw fa-sign-in-alt"></i>
                     <span>Sign Up</span>
                 </a>
@@ -217,7 +215,7 @@ $Login_Type=$_SESSION["type"]
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Wallet</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="getBalanceShopper" hidden="true">Dummy tex</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="getBalance" hidden="true">Dummy tex</div>
 
                                         </div>
                                         <div class="col-auto">
@@ -235,11 +233,19 @@ $Login_Type=$_SESSION["type"]
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Stored Card</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="getStoredCardDetails">4111 11** **** 1111</div>
+                                                KYC Details</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="getStoredCardDetails">Update</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+
+                                        <button type="button" class="btn btn-outline-secondary" onclick="callGetOnboardingLink()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+<path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"></path>
+</svg>
+              <span class="visually-hidden"></span>
+
+            </button>
+
                                         </div>
                                     </div>
                                 </div>
@@ -256,12 +262,10 @@ $Login_Type=$_SESSION["type"]
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">33</div>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -313,9 +317,9 @@ $Login_Type=$_SESSION["type"]
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                        Wallet</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800" id="getBalance" hidden="true">Dummy tex</div>
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Wallet</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="getBalance" hidden="true">Dummy tex</div>
 
                     </div>
                     <div class="col-auto">
@@ -333,11 +337,19 @@ $Login_Type=$_SESSION["type"]
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            Stored Card</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="getStoredCardDetails">4111 11** **** 1111</div>
+                            KYC Details</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="getStoredCardDetails">Update</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+
+                    <button type="button" class="btn btn-outline-secondary" onclick="callGetOnboardingLink()">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+<path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"></path>
+</svg>
+<span class="visually-hidden"></span>
+
+</button>
+
                     </div>
                 </div>
             </div>
