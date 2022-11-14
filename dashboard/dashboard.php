@@ -13,6 +13,8 @@ $Login_Type=$_SESSION["type"]
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <link rel="icon" href="../login/images/food-panda-logo.png">
+
     <title>FoodPanda - Dashboard</title>
 
     <!-- Custom fonts for this template-->
@@ -103,7 +105,7 @@ $Login_Type=$_SESSION["type"]
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="/index.php">
+                <a class="nav-link" href="../qrCode.html">
                     <i class="fas fa-fw fa-sign-in-alt"></i>
                     <span>Sign Up</span>
                 </a>

@@ -8,11 +8,12 @@ $item_Name=urldecode($_GET['itemName']);
     var itemPrice = "<?php echo $item_price; ?>";
 </script>
 
+<link rel="icon" href="../login/images/food-panda-logo.png">
+
 <html lang="en"><head>
   <script id="adyen-web-script" src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.12.0/adyen.js"
   crossorigin="anonymous"></script>
-  <link id="adyen-web-stylesheet" rel="stylesheet"
-  href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.12.0/adyen.css"
+  <link id="adyen-web-stylesheet" rel="stylesheet" href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.12.0/adyen.css"/>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
