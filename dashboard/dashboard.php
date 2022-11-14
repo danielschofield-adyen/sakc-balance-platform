@@ -214,7 +214,7 @@ $Login_Type=$_SESSION["type"]
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Wallet</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="getBalance" hidden="true">Dummy tex</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="getBalanceShopper" hidden="true">Dummy tex</div>
 
                                         </div>
                                         <div class="col-auto">
@@ -309,9 +309,9 @@ $Login_Type=$_SESSION["type"]
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            Wallet</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="getBalance" hidden="true">Dummy tex</div>
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                        Wallet</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800" id="getBalance" hidden="true">Dummy tex</div>
 
                     </div>
                     <div class="col-auto">
