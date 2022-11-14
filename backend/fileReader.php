@@ -22,15 +22,51 @@ function generateTableFromFile()
     $csv = readCSV('../data/balanceplatform_accounting_report.csv');
 
     $accountHolderIndex = 1;
-    $cellIterator = 0;
     $rowIterator = 0;
-    var_dump($_ENV["accountHolderId"]);
+
+    echo '<thead>';
+    echo    '<tr>';
+    foreach($csv[0] as $cell)
+    {
+        echo '<th>';
+        print_r($cell);
+        echo '</th>';
+    }
+    echo    '</tr>';
+    echo '</thead>';
+
+    echo '<tbody>';
+    for($i = 1; $i < count($csv); $i++)
+    {
+        if($_SESSION["type"] != "organisation")
+        {
+            if($row[1] != $_SESSION["accountHolderId"])
+            {
+                continue;
+            }
+        }
+
+        echo    '<tr>';
+        foreach($csv[$i] as $cell)
+        {
+            echo '<td>';
+            print_r($cell);
+            echo '</td>';
+        }
+        echo    '</tr>';
+    }
+    echo '</tbody>';
+    
+    /*
     foreach($csv as $row)
     {
-        /*if($row[1] != $_ENV["accountHolderId"] & $rowIterator > 0)
+        if($_SESSION["type"] != "organisation")
         {
-            continue;
-        }*/
+            if($row[1] != $_SESSION["accountHolderId"] & $rowIterator > 0)
+            {
+                continue;
+            }
+        }
         
         echo ($rowIterator < 1) ? '<thead>' : '<tbody>';
         echo    '<tr>';
@@ -43,10 +79,10 @@ function generateTableFromFile()
         }
         echo    '</tr>';
         echo ($rowIterator < 1) ? '</thead>' : '</tbody>';
-
-        $cellIterator = 0;
+        
         $rowIterator++;
     }
+    */
 }
 
 ?>
