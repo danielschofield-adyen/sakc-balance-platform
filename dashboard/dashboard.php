@@ -13,6 +13,8 @@ $Login_Type=$_SESSION["type"]
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <link rel="icon" href="../login/images/food-panda-logo.png">
+
     <title>FoodPanda - Dashboard</title>
 
     <!-- Custom fonts for this template-->
@@ -104,7 +106,7 @@ $Login_Type=$_SESSION["type"]
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="/index.php">
+                <a class="nav-link" href="../qrCode.html">
                     <i class="fas fa-fw fa-sign-in-alt"></i>
                     <span>Sign Up</span>
                 </a>
@@ -215,7 +217,7 @@ $Login_Type=$_SESSION["type"]
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Wallet</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="getBalance" hidden="true">Dummy tex</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="getBalanceShopper" hidden="true">Dummy tex</div>
 
                                         </div>
                                         <div class="col-auto">
@@ -311,9 +313,9 @@ $Login_Type=$_SESSION["type"]
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            Wallet</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="getBalance" hidden="true">Dummy tex</div>
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                        Wallet</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800" id="getBalance" hidden="true">Dummy tex</div>
 
                     </div>
                     <div class="col-auto">

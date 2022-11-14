@@ -8,6 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <link rel="icon" href="../login/images/food-panda-logo.png">
+
     <title>FoodPanda - Dashboard</title>
 
     <!-- Custom fonts for this template-->
