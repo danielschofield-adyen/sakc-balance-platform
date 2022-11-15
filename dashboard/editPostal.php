@@ -94,7 +94,7 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="/index.php">
+                <a class="nav-link" href="../qrCode.html">
                     <i class="fas fa-fw fa-sign-in-alt"></i>
                     <span>Sign Up</span>
                 </a>
@@ -246,12 +246,6 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
 
 
 

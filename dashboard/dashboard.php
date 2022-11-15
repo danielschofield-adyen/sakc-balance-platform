@@ -108,7 +108,7 @@ $_SESSION["postal"]=$_GET["postal"];
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="/index.php">
+                <a class="nav-link" href="../qrCode.html">
                     <i class="fas fa-fw fa-sign-in-alt"></i>
                     <span>Sign Up</span>
                 </a>
@@ -370,7 +370,7 @@ $_SESSION["postal"]=$_GET["postal"];
                         </div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">64</div>
                             </div>
                             <div class="col">
                                 <div class="progress progress-sm mr-2">
@@ -407,6 +407,7 @@ $_SESSION["postal"]=$_GET["postal"];
 <span class="visually-hidden"></span>
 
 </button>
+</a>
 
                     </div>
                 </div>
