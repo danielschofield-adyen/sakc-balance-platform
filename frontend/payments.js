@@ -48,8 +48,8 @@ async function callPayments(state, splitOne, splitTwo)
         "channel": "Web",
         "countryCode": "SG",
         "storePaymentMethod":"true",
-        "origin": "http://localhost:3000/apiCallExample.html",
-        "returnUrl": "http://localhost:3000/shoppingCart.html",
+        "origin": "https://sakc-balance-platform.herokuapp.com/dashboard/checkout.php",
+        "returnUrl": "https://sakc-balance-platform.herokuapp.com/dashboard/checkout.php",
         "browserInfo": state.data.browserInfo,
         "authenticationData": { //required for native 3DS2
             "threeDSRequestData": {
