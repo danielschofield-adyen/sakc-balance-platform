@@ -19,7 +19,7 @@ function readCSV($file)
 
 function generateTableFromFile()
 {
-    $csv = readCSV('../data/balanceplatform_accounting_report.csv');
+    $csv = readCSV('../data/balanceplatform_accounting_report_2022_11_13.csv');
 
     $accountHolderIndex = 1;
     $rowIterator = 0;

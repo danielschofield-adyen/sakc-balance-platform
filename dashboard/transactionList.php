@@ -114,7 +114,7 @@ document.getElementById("transactionList").innerHTML = table;
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="/index.php">
+                <a class="nav-link" href="../qrCode.html">
                     <i class="fas fa-fw fa-sign-in-alt"></i>
                     <span>Sign Up</span>
                 </a>
@@ -181,7 +181,7 @@ document.getElementById("transactionList").innerHTML = table;
                         <div class="col-xl-12">
                             <div class="card shadow mb-4">
                                 <!-- Card Body -->
-                                <div class="card-body" id="transactionList" style="overflow-x:auto;">Dummy tex</div>
+                                <div class="card-body" id="transactionList" style="overflow-x:auto;">Loading transactions...</div>
                             </div>
                         </div>
                     </div>
