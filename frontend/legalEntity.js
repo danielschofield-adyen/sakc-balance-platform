@@ -26,7 +26,7 @@ async function callLegalEntity(data)
       },
       "email": data["emailAddress"],
       "identificationData":{
-        "type":"identityCard",
+        "type":"driversLicense",
         "number":"123456789"
       }
     }

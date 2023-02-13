@@ -370,7 +370,7 @@ $_SESSION["postal"]=$_GET["postal"];
                         </div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">64</div>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">0</div>
                             </div>
                             <div class="col">
                                 <div class="progress progress-sm mr-2">

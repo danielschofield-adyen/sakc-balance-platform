@@ -15,5 +15,5 @@ async function callTopUpWallet()
 async function callTopUpConfirmed()
 {
     topUpAmountInput = parseFloat(Number(document.getElementById('topUpAmountInput').value).toFixed(2));
-    callDropin(topUpAmountInput, 1, 0)
+    callDropin(topUpAmountInput, 1, 0, "BA32272223222C5GWT62NDT4D")
 }

@@ -1,10 +1,10 @@
 var dropin;
 
-async function callDropin(amountValue, splitOne, splitTwo)
+async function callDropin(amountValue, splitOne, splitTwo, balanceAccount)
 {
     callUnmountPayment()
 
-    let paymentMethodResponse = await callPaymentMethods()
+    let paymentMethodResponse = await callPaymentMethods(amountValue)
 
     configuration = {
         paymentMethodsResponse: paymentMethodResponse,
@@ -19,7 +19,7 @@ async function callDropin(amountValue, splitOne, splitTwo)
         },
         onSubmit: (state) => { //Assign event handler when pay button is clicked
             if (state.isValid) {
-                 callPayments(state, splitOne, splitTwo);
+                 callPayments(state, splitOne, splitTwo, balanceAccount, amountValue);
             }
         },
         onAdditionalDetails: (state) => { //Assign event handler when additional details are required
@@ -40,6 +40,6 @@ async function callDropin(amountValue, splitOne, splitTwo)
     }
 
     checkout = await AdyenCheckout(configuration);
-    dropin = checkout.create("dropin").mount(document.getElementById("dropin-container"));
+    dropin = checkout.create("dropin", {showRemovePaymentMethodButton: true}).mount(document.getElementById("dropin-container"));
 
 }

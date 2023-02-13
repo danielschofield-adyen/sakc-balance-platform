@@ -29,18 +29,21 @@ async function callPaymentsTEST()
 //Global order number
 const orderRef = Math.floor(Math.random() * Date.now()); //Unique ref for the transaction
 
-async function callPayments(state, splitOne, splitTwo)
+async function callPayments(state, splitOne, splitTwo, balanceAccount, amountValue)
 {
     if ((splitOne && splitTwo) == undefined){
         splitOne = 0.9;
         splitTwo = 0.1;
+    }
+    if ((balanceAccount) == undefined){
+        balanceAccount = "BA32272223222C5GWV9F6263K";
     }
 
     const url = "../backend/payments.php";
     const data = {
         // "merchantAccount":"Demo_FoodPanda",
         "amount":{
-            "value":totalCartCost*100,
+            "value":amountValue*100,
             "currency":"SGD"
         },
         "paymentMethod": state.data.paymentMethod, //Required
@@ -59,15 +62,15 @@ async function callPayments(state, splitOne, splitTwo)
         "splits":[
             {
                  "amount":{
-                       "value":Math.round((totalCartCost*100)*splitOne)
+                       "value":Math.round((amountValue*100)*splitOne)
                  },
                  "type":"BalanceAccount",
-                 "account":"BA32272223222C5GWV9F6263K",
+                 "account":balanceAccount,
                  "reference":"Top Up"
               },
               {
                  "amount":{
-                      "value":Math.round((totalCartCost*100)*splitTwo)
+                      "value":Math.round((amountValue*100)*splitTwo)
                  },
                  "type":"Commission",
                  "reference":"Top Up"

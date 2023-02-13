@@ -17,8 +17,11 @@ async function callPaymentMethodsTEST()
     return response;
 }
 
-async function callPaymentMethods()
+async function callPaymentMethods(amountValue)
 {
+    if ((amountValue) == undefined){
+        amountValue = totalCartCost;
+    }
     const url = "../backend/paymentMethods.php";
     const data = {
         // "merchantAccount":"Demo_FoodPanda", //Harded for now, tried to pull from backend and .env but not successful. Can someone do it?
@@ -26,7 +29,7 @@ async function callPaymentMethods()
         "amount":
         {
             "currency":"SGD",
-            "value":totalCartCost*100
+            "value":amountValue*100
         }
     };
 
