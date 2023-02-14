@@ -85,6 +85,15 @@
 
             </li>
 
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="/dashboard/capital.php">
+                    <i class="fas fa-fw fa-money-bill"></i>
+                    <span>Capital</span>
+                </a>
+
+            </li>
+
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="../qrCode.html">
