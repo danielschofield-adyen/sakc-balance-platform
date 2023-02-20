@@ -1,3 +1,15 @@
+<?php session_start();
+$liableBA = $_ENV["LIABLE_BA"];
+$liableAH = $_ENV["LIABLE_AH"];
+$platformLE = $_ENV["PLATFORM_LE"];
+?>
+
+<script type="text/javascript">
+    var liableBA = "<?php echo $liableBA; ?>";
+    var liableAH = "<?php echo $liableAH; ?>";
+    var platformLE = "<?php echo $platformLE; ?>";
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

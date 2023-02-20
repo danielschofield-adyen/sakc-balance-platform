@@ -31,10 +31,10 @@ async function checkUsernameDb(data)
             "firstName":"FoodPanda",
             "lastName":"",
             "emailAddress":"",
-            "legalEntityId":"LE322JV223222F5GVVCB37KDH",
+            "legalEntityId":platformLE,
             "type":"organisation",
-            "accountHolderId":"AH3227C223222C5GVVCB46Z8W",
-            "balanceAccountId":"BA3227C223222C5GVVCB46Z93"
+            "accountHolderId":liableAH,
+            "balanceAccountId":liableBA
         }
 
         redirectToDashboard(json);
@@ -57,10 +57,10 @@ async function checkUsernameDb(data)
             "firstName":"Michael",
             "lastName":"Scott",
             "emailAddress":"",
-            "legalEntityId":"LE322JV223222F5GWT62L3J8C",
+            "legalEntityId":platformLE,
             "type":"individual",
-            "accountHolderId":"AH32272223222C5GWT62MDT3B",
-            "balanceAccountId":"BA32272223222C5GWT62NDT4D"
+            "accountHolderId":liableAH,
+            "balanceAccountId":liableBA
         }
 
         redirectToDashboard(json);
