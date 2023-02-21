@@ -19,6 +19,11 @@ if (file_get_contents('php://input') != '') {
     $request = array();
 }
 
+//Check to see if session balance account is empty or not
+if (empty($_SESSION["balanceAccountId"])){
+    $_SESSION["balanceAccountId"] = $_ENV["SUBMERCHANT_BA"]; 
+}
+
 //set api key, merchant account and url
 $apikey = $_ENV["PLATFORM_APIKEY"]; //update with platform or checkout api keys
 $merchantAccount = $_ENV["MERCHANT_ACCOUNT"]; //not using this

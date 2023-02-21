@@ -1,4 +1,20 @@
-<?php session_start() ?>
+<?php session_start();
+$liableBA = $_ENV["LIABLE_BA"];
+$liableAH = $_ENV["LIABLE_AH"];
+$platformLE = $_ENV["PLATFORM_LE"];
+$subMerchantBA = $_ENV["SUBMERCHANT_BA"];
+$subMerchantAH = $_ENV["SUBMERCHANT_AH"];
+$subMerchantLE = $_ENV["SUBMERCHANT_LE"];
+?>
+
+<script type="text/javascript">
+    var liableBA = "<?php echo $liableBA; ?>";
+    var liableAH = "<?php echo $liableAH; ?>";
+    var platformLE = "<?php echo $platformLE; ?>";
+    var subMerchantBA = "<?php echo $subMerchantBA; ?>";
+    var subMerchantAH = "<?php echo $subMerchantAH; ?>";
+    var subMerchantLE = "<?php echo $subMerchantLE; ?>";
+</script>
 
 <html lang="en"><head>
 

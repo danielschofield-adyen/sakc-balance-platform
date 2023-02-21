@@ -9,7 +9,7 @@ async function callTransferBalance(amountValue)
     // "balanceAccountId": "BA32272223222C5GWSL23DN8Z",
     "category" : "internal",
     "counterparty": {
-        "balanceAccountId": "BA32272223222C5GVVCB5D45D"
+        "balanceAccountId": ""
     },
     "description": "Transfer using wallet on FoodPanda",
     "reference": orderRef

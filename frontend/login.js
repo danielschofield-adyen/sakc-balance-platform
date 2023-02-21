@@ -36,7 +36,7 @@ async function checkUsernameDb(data)
             "accountHolderId":liableAH,
             "balanceAccountId":liableBA
         }
-
+        console.log("this is admin/admin")
         redirectToDashboard(json);
         return;
     }
@@ -57,12 +57,12 @@ async function checkUsernameDb(data)
             "firstName":"Michael",
             "lastName":"Scott",
             "emailAddress":"",
-            "legalEntityId":platformLE,
+            "legalEntityId":subMerchantLE,
             "type":"individual",
-            "accountHolderId":liableAH,
-            "balanceAccountId":liableBA
+            "accountHolderId":subMerchantAH,
+            "balanceAccountId":subMerchantBA
         }
-
+        console.log("this is shopper/shopper")
         redirectToDashboard(json);
         return;
     }

@@ -22,15 +22,23 @@ if (file_get_contents('php://input') != '') {
 //set api key, merchant account and url
 $apikey = $_ENV["PLATFORM_APIKEY"]; //update with platform or checkout api keys
 $merchantAccount = $_ENV["MERCHANT_ACCOUNT"]; //not using this
+$liableBA = $_ENV["LIABLE_BA"];
 $url = "https://balanceplatform-api-test.adyen.com/btl/v3/transfers"; //call endpoint here
 
+
+// Modify counterparty and add BA
+$request['counterparty'] = array("balanceAccountId" => $liableBA);
+
+// console log output of counterparty
+error_log(print_r($request['counterparty'], TRUE)); 
+
 //Add any additional data not sent in the request
-$data = [
-    "balanceAccountId"=>$_SESSION["balanceAccountId"]
-];
+$data = [ "balanceAccountId"=>$_SESSION["balanceAccountId"] ]; 
 
 // Convert data to JSON
-$json_data = json_encode(array_merge($data, $request));
+$json_data = json_encode(array_merge($data, $request), JSON_FORCE_OBJECT);
+
+error_log(print_r($json_data, TRUE));
 
 // Initiate curl
 $curlAPICall = curl_init();
