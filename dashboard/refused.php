@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="icon" href="../login/images/food-panda-logo.png">
+    <link rel="icon" href="../login/images/canva.svg">
 
     <title>FoodPanda - Order Refused</title>
 
@@ -53,7 +53,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon">
-                    <img class="sidebar-icon" src="../../login/images/food-panda-logo.png">
+                    <img class="sidebar-icon" src="../../login/images/canva.svg">
                 </div>
                 <div class="sidebar-brand-text mx-3">FoodPanda</div>
             </a>

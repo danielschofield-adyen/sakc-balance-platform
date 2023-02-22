@@ -1,12 +1,12 @@
 <?php
 
-include "../backend/fileReader.php";
+// include "../backend/fileReader.php";
 session_start() ;
-$Login_Type=$_SESSION["type"];
+// $Login_Type=$_SESSION["type"];
 
-if($_GET["postal"]!=null){
-$_SESSION["postal"]=$_GET["postal"];
-}
+// if($_GET["postal"]!=null){
+// $_SESSION["postal"]=$_GET["postal"];
+// }
 ?>
 
 <html lang="en"><head>
@@ -19,7 +19,7 @@ $_SESSION["postal"]=$_GET["postal"];
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>FoodPanda - Dashboard</title>
+    <title>Canva - Capital</title>
 
 <head>
     <meta charset="utf-8">
@@ -126,19 +126,11 @@ $_SESSION["postal"]=$_GET["postal"];
     <script src="../frontend/transferBalance.js"></script>
     <script src="../frontend/logout.js"></script>
     <script src="../frontend/dashboardWidgets.js"></script>
-    <script>
-
-    callDashboardWidgets();
-
-    </script>
 
     <style type="text/css">/* Chart.js */
 @keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}</style></head>
 
 <body id="page-top">
-
-
-
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -148,9 +140,8 @@ $_SESSION["postal"]=$_GET["postal"];
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
             <div class="sidebar-brand-icon">
-                <img class="sidebar-icon" src="../../login/images/food-panda-logo.png">
+                <img class="sidebar-icon" src="../../login/images/canva.svg">
             </div>
-            <div class="sidebar-brand-text mx-3">FoodPanda</div>
         </a>
 
         <!-- Divider -->
@@ -164,22 +155,17 @@ $_SESSION["postal"]=$_GET["postal"];
         </li>
 
         <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Interface
-        </div>
+       <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link" href="/dashboard/index.php">
                 <i class="fas fa-fw fa-shopping-bag"></i>
-                <span>Shopping</span>
+                <span>Cards</span>
             </a>
 
         </li>
-
+        <hr class="sidebar-divider my-0">
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item active">
             <a class="nav-link" href="/dashboard/capital.php">
@@ -188,7 +174,7 @@ $_SESSION["postal"]=$_GET["postal"];
             </a>
 
         </li>
-
+        <hr class="sidebar-divider my-0">
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link" href="../qrCode.html">
@@ -197,31 +183,7 @@ $_SESSION["postal"]=$_GET["postal"];
             </a>
 
         </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <hr class="sidebar-divider d-none d-md-block">
-
-
-
-
-
-
-
+        <hr class="sidebar-divider my-0">
     </ul>
     <!-- End of Sidebar -->
 
@@ -373,5 +335,10 @@ $_SESSION["postal"]=$_GET["postal"];
     <script src="../frontend/chart.min.js"></script>
     <script src="../frontend/dashboard.js"></script>
 
+   <script>
+
+    callDashboardWidgets();
+
+    </script>
 
 </body></html>

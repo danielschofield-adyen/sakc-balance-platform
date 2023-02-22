@@ -23,7 +23,7 @@ $subMerchantLE = $_ENV["SUBMERCHANT_LE"];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FoodPanda - Login</title>
-    <link rel="icon" href="login/images/food-panda-logo.png">
+    <link rel="icon" href="login/images/canva.svg">
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="login/fonts/material-icon/css/material-design-iconic-font.min.css">
@@ -55,7 +55,7 @@ $subMerchantLE = $_ENV["SUBMERCHANT_LE"];
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-image">
-                        <figure><img src="login/images/food-panda-logo.png" alt="sing up image"></figure>
+                        <figure><img src="login/images/canva.svg" alt="sing up image"></figure>
                         <a href="register.html" class="signup-image-link" >Create an account</a>
                     </div>
 

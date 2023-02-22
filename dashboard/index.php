@@ -24,7 +24,7 @@ $subMerchantLE = $_ENV["SUBMERCHANT_LE"];
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="icon" href="../login/images/food-panda-logo.png">
+    <link rel="icon" href="../login/images/canva.svg">
 
     <title>FoodPanda - Checkout</title>
 
@@ -64,87 +64,53 @@ $subMerchantLE = $_ENV["SUBMERCHANT_LE"];
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+                <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-                <div class="sidebar-brand-icon">
-                    <img class="sidebar-icon" src="../../login/images/food-panda-logo.png">
-                </div>
-                <div class="sidebar-brand-text mx-3">FoodPanda</div>
-            </a>
+                    <!-- Sidebar - Brand -->
+                    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+                        <div class="sidebar-brand-icon">
+                            <img class="sidebar-icon" src="../../login/images/canva.svg">
+                        </div>
+                    </a>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+                    <!-- Divider -->
+                    <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="/dashboard/dashboard.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
+                    <!-- Nav Item - Dashboard -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard/dashboard.php">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Dashboard</span></a>
+                    </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item active">
-                <a class="nav-link" href="/dashboard/index.php">
-                    <i class="fas fa-fw fa-shopping-bag"></i>
-                    <span>Shopping</span>
-                </a>
-
-            </li>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link" href="/dashboard/capital.php">
-                    <i class="fas fa-fw fa-money-bill"></i>
-                    <span>Capital</span>
-                </a>
-
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link" href="../qrCode.html">
-                    <i class="fas fa-fw fa-sign-in-alt"></i>
-                    <span>Sign Up</span>
-                </a>
-
-            </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <hr class="sidebar-divider d-none d-md-block">
-
-
-
-
-
-
-
-        </ul>
-        <!-- End of Sidebar -->
+                    <!-- Divider -->
+                    <hr class="sidebar-divider my-0">
+                    <!-- Nav Item - Pages Collapse Menu -->
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/dashboard/index.php">
+                            <i class="fas fa-fw fa-shopping-bag"></i>
+                            <span>Cards</span>
+                        </a>
+                    </li>
+                    <hr class="sidebar-divider my-0">
+                    <!-- Nav Item - Pages Collapse Menu -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard/capital.php">
+                            <i class="fas fa-fw fa-money-bill"></i>
+                            <span>Capital</span>
+                        </a>
+                    </li>
+                    <hr class="sidebar-divider my-0">
+                    <!-- Nav Item - Utilities Collapse Menu -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="../qrCode.html">
+                            <i class="fas fa-fw fa-sign-in-alt"></i>
+                            <span>Sign Up</span>
+                        </a>
+                    </li>
+                    <hr class="sidebar-divider d-none d-md-block">
+                </ul>
+                <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">

@@ -80,7 +80,7 @@ document.getElementById("transactionList").innerHTML = table;
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon">
-                    <img class="sidebar-icon" src="../../login/images/food-panda-logo.png">
+                    <img class="sidebar-icon" src="../../login/images/canva.svg">
                 </div>
                 <div class="sidebar-brand-text mx-3">FoodPanda</div>
             </a>

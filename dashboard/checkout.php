@@ -8,7 +8,7 @@ $item_Name=urldecode($_GET['itemName']);
     var itemPrice = "<?php echo $item_price; ?>";
 </script>
 
-<link rel="icon" href="../login/images/food-panda-logo.png">
+<link rel="icon" href="../login/images/canva.svg">
 
 <html lang="en"><head>
   <script id="adyen-web-script" src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/5.12.0/adyen.js"
@@ -71,7 +71,7 @@ $item_Name=urldecode($_GET['itemName']);
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon">
-                    <img class="sidebar-icon" src="../login/images/food-panda-logo.png">
+                    <img class="sidebar-icon" src="../login/images/canva.svg">
                 </div>
                 <div class="sidebar-brand-text mx-3">FoodPanda</div>
             </a>

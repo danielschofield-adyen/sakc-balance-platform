@@ -1,12 +1,12 @@
 <?php
 
-include "../backend/fileReader.php";
+// include "../backend/fileReader.php";
 session_start() ;
 $Login_Type=$_SESSION["type"];
 
-if($_GET["postal"]!=null){
-$_SESSION["postal"]=$_GET["postal"];
-}
+// if($_GET["postal"]!=null){
+// $_SESSION["postal"]=$_GET["postal"];
+// }
 ?>
 
 <html lang="en"><head>
@@ -17,8 +17,9 @@ $_SESSION["postal"]=$_GET["postal"];
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>FoodPanda - Dashboard</title>
+    <title>Canva - Dashboard</title>
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -74,9 +75,8 @@ $_SESSION["postal"]=$_GET["postal"];
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon">
-                    <img class="sidebar-icon" src="../../login/images/food-panda-logo.png">
+                    <img class="sidebar-icon" src="../../login/images/canva.svg">
                 </div>
-                <div class="sidebar-brand-text mx-3">FoodPanda</div>
             </a>
 
             <!-- Divider -->
@@ -90,64 +90,31 @@ $_SESSION["postal"]=$_GET["postal"];
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
-
+            <hr class="sidebar-divider my-0">
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="/dashboard/index.php">
                     <i class="fas fa-fw fa-shopping-bag"></i>
-                    <span>Shopping</span>
+                    <span>Cards</span>
                 </a>
-
             </li>
-
+            <hr class="sidebar-divider my-0">
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="/dashboard/capital.php">
                     <i class="fas fa-fw fa-money-bill"></i>
                     <span>Capital</span>
                 </a>
-
             </li>
-
+            <hr class="sidebar-divider my-0">
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="../qrCode.html">
                     <i class="fas fa-fw fa-sign-in-alt"></i>
                     <span>Sign Up</span>
                 </a>
-
             </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <hr class="sidebar-divider d-none d-md-block">
-
-
-
-
-
-
-
         </ul>
         <!-- End of Sidebar -->
 
@@ -212,118 +179,15 @@ $_SESSION["postal"]=$_GET["postal"];
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-1">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
 
                     </div>
-
-                    <!-- Content admin Row -->
-                    <div class="row" id="contentAdminRow" hidden="true" >
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Wallet</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="getBalance" hidden="true">Dummy tex</div>
-
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                KYC Details</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="getStoredCardDetails">Update</div>
-                                        </div>
-                                        <div class="col-auto">
-
-                                        <button type="button" class="btn btn-outline-secondary" onclick="callGetOnboardingLink()">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-<path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"></path>
-</svg>
-              <span class="visually-hidden"></span>
-
-            </button>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">No of transactions done
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">33</div>
-                                                </div>
-                                                <div class="col">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                        <a href="transactionList.php">  <i class="fas fa-clipboard-list fa-2x text-gray-300"></i></a>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pending Requests Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Next Payout</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">16th November 2022</div>
-                                        </div>
-                                        <div class="col-auto">
-                                        <a href="editPayout.php">
-                                        <button type="button" class="btn btn-outline-secondary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-<path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"></path>
-</svg>
-              <span class="visually-hidden"></span>
-
-            </button>
-            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-<!----End of admin -->
+                    <div class="mb-2 text-gray-800">Here is a summary of your business</div>
 
 <!---contentShopper-->
 <!-- Content admin Row -->
 <div class="row" id="contentShopperRow" hidden="true">
-
     <!-- Earnings (Monthly) Card Example -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-100 py-2">
@@ -370,26 +234,32 @@ $_SESSION["postal"]=$_GET["postal"];
     </div>
 
     <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-info shadow h-100 py-2">
+    <div class="col-xl-3 col-md-8 mb-4">
+        <div class="card shadow h-100 py-2">
             <div class="card-body">
+                <h5 class="card-title text-dark font-weight-bold">Bank Account</h5>
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">No of transactions done
+                        <div class="h5 text-dark mb-1">Current balance</div>
+                        <div class="h2 mb-0 mr-3 font-weight-bold text-gray-800">$700.00</div>
+                        <div class="text-xs text-muted text-uppercase mb-1">Pending payout: $2,020.20</div>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href='/dashboard/index.php'">View Cards</button>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Create New Card</button>
+
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                          <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasRightLabel">Create New Card</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                          </div>
+                          <div class="offcanvas-body">
+
+                          </div>
                         </div>
-                        <div class="row no-gutters align-items-center">
-                            <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">0</div>
-                            </div>
-                            <div class="col">
-                                <div class="progress progress-sm mr-2">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
+
+
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        <img class="sidebar-icon canva-card" src="img/canva_card.png">
                     </div>
                 </div>
             </div>
@@ -397,52 +267,24 @@ $_SESSION["postal"]=$_GET["postal"];
     </div>
 
     <!-- Pending Requests Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-warning shadow h-100 py-2">
+    <div class="col-xl-3 col-md-4 mb-4">
+        <div class="card shadow h-100 py-2">
             <div class="card-body">
+                <h5 class="card-title text-dark font-weight-bold">Captial</h5>
+                <div class="h5 text-dark mb-1">You've been pre-qualified to receive funds up to $8,000.00 today</div>
+                <button type="button" class="btn btn-primary" onclick="window.location.href='/dashboard/capital.php'">View Offers</button>
                 <div class="row no-gutters align-items-center">
+
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                            Delivery Postal Code</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="postal"><?php echo $_SESSION["postal"]; ?></div>
-                    </div>
-                    <div class="col-auto">
-                    <a href="editPostal.php">
-
-                    <button type="button" class="btn btn-outline-secondary">
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-<path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"></path>
-</svg>
-<span class="visually-hidden"></span>
-
-</button>
-</a>
 
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!---end of shopper -->
-
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <!-- Add the tables here -->
-                                        <?php generateTableFromFile(); ?>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
 
                     <!-- Content Row -->
                     <div class="row">
@@ -501,7 +343,7 @@ $_SESSION["postal"]=$_GET["postal"];
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
