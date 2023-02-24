@@ -126,6 +126,7 @@ session_start() ;
     <script src="../frontend/transferBalance.js"></script>
     <script src="../frontend/logout.js"></script>
     <script src="../frontend/dashboardWidgets.js"></script>
+    <script src="../frontend/getGrant.js"></script>
 
     <style type="text/css">/* Chart.js */
 @keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}</style></head>
@@ -285,7 +286,7 @@ session_start() ;
                         <ul class="list-unstyled mt-3 mb-4">
                             <li>You'll return 8% of your daily sales until you've remitted $4,400</li>
                         </ul>
-                        <button type="button" class="w-100 btn btn-lg btn-primary">Request $4000</button>
+                        <button type="button" class="w-100 btn btn-lg btn-primary" id="btn-getGrant" onclick="callGetGrant()">Request $4000</button>
                     </div>
                 </div>
             </div>
