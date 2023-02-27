@@ -1,0 +1,18 @@
+.canva-top-bar {
+    height: 72px;
+    position:fixed;
+}
+
+.canva-side-menu {
+    width: 260px;
+    position:fixed;
+    top: 75px;
+}
+
+.canva-main-content {
+    padding: 85px 0 0 270px;
+}
+
+.canva-card {
+    width: 300px;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>Canva Dashboard</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <link href="https://static.canva.com/web/b0e74abf829b5a95.ltr.css" rel="stylesheet" integrity="sha512-o+cQCYJa05qjaDQ4s4k3JQbuqyVdpc3kxFaq25QHkDXaRWm0FZv3Y7OYMw4xxS5e5k4kmgdZQJkDheInIz+r1A==" crossorigin="anonymous">
+        <link href="https://static.canva.com/web/static_font_4.ltr.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://static.canva.com/web/713fb05c42ea2e98.ltr.css">
+
+        <link rel="stylesheet" type="text/css" href="https://static.canva.com/web/122c025e278a8ec7.ltr.css">
+        <link rel="stylesheet" type="text/css" href="https://static.canva.com/web/9cb9945a1af9cb14.ltr.css">
+        <link rel="stylesheet" type="text/css" href="https://static.canva.com/web/b085d50cd9cb6416.ltr.css">
+        <link rel="stylesheet" type="text/css" href="https://static.canva.com/web/401c5650945e8dc9.ltr.css">
+
+        <link rel="stylesheet" type="text/css" href="css/canva.css">
+
+    </head>
+
+    <body id="page-top">
+        <div class="canva-top-bar"></div>
+        <div class="canva-side-menu"></div>
+        <div class="canva-main-content">
+
+        </div>
+
+        <script>
+            function updateMenu(){
+                $(".sideMenuItem a").removeClass("Ste44A BqVG9w");
+                $("#issuingMenuItem").addClass("Ste44A BqVG9w");
+            }
+            $(document).ready(function () {
+               $(".canva-top-bar").load('./topBar.html');
+               $(".canva-side-menu").load('./sideMenu.html', updateMenu);
+            });
+        </script>
+    </body>
+
+</html>
